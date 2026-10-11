@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 159, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 164, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(302, quests.size)
-        assertEquals(302, quests.map { it.id }.toSet().size)
-        assertEquals(302, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(307, quests.size)
+        assertEquals(307, quests.map { it.id }.toSet().size)
+        assertEquals(307, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -170,6 +170,20 @@ class Risen2QuestDataTest {
         assertEquals("Custodio", quests.getValue("R2-C3-065").giver)
         assertEquals("500 Glory", quests.getValue("R2-C3-064").reward)
         assertTrue(quests.getValue("R2-C3-065").reward.contains("200 Glory"))
+    }
+
+    @Test fun antiguaTreasureAndRicksReturnQuestHaveSeparateProgress() {
+        val appendix = Risen2GuidePart16Data.quests
+        assertEquals(5, appendix.size)
+        assertEquals((160..164).toList(), appendix.map { it.playOrder })
+        assertTrue(appendix.all { it.chapter == 3 && it.walkthroughSteps.size == 3 })
+        assertEquals(5, appendix.map { it.id }.toSet().size)
+        val byTitle = appendix.associateBy { it.title }
+        assertEquals("Scarlett", byTitle.getValue("Where Is Rick?").giver)
+        assertEquals("Rick", byTitle.getValue("There's No Place Like Home").giver)
+        assertTrue(byTitle.getValue("Where Is Rick?").prerequisites.contains("Where Is My Ship?"))
+        assertTrue(byTitle.getValue("Gibson's Grave").reward.contains("Silver Mask"))
+        assertEquals("100 Glory", byTitle.getValue("The Treasure in the Grotto on Antigua").reward.substringBefore(";"))
     }
 
 }

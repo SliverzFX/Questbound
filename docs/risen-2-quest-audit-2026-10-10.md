@@ -286,3 +286,21 @@ Unit regression tests now validate the 324-record counts/IDs and major confirmed
 - https://www.gamepressure.com/risen2/defeat-the-kraken/za3bc2
 
 **Source-data verdict:** Quest-title coverage complete against this index; exact numerical rewards and legacy progress classification still contain some explicitly documented uncertainty. **Release verdict:** Green CI on the newest commit and UI/real-device QA not yet confirmed at the time of writing.
+
+
+## 11 October 2026 — final verification follow-up: single-playthrough progress and reward corrections
+
+A fresh check of the repository (after the earlier claim that Risen 2 was finished) found **the Android build and instrumentation run at commit `83072d5e5a9644e617d9c4e7188e7755605f4408` succeeded** (GitHub Actions run [38152475975](https://github.com/SliverzFX/Questbound/actions/runs/38152475975): both `build` and `instrumentation` jobs succeeded). The current subsequent commits have to pass separately.
+
+This follow-up fixed two previously vague rewards using primary quest-specific walkthroughs:
+- `R2-C2-012` **The Evil Spirit of the River**: kill the Alligator to auto-complete the quest for **100 Glory**, with **200 additional Glory for the kill**. Natsumi's later conversation awards no extra Glory. Source: https://www.gamepressure.com/risen2/the-evil-spirit-of-the-river/z439e3
+- `R2-C2-020` **Chani, Daughter of the Chieftain**: **100 Glory** for discussing missing Tahana with Ranapiri and reporting to Chani. Faction commitment happens later in Help Against Crow; taking the Inquisition side cancels this preliminary quest. Source: https://gamefaqs.gamespot.com/xbox360/622500-risen-2-dark-waters/faqs/64985
+
+The Risen 2 UI was still showing ordinary chapter completion percentages for all possible quest paths. This can be misleading when quests such as Native-only and Inquisition-only alternatives **cannot be finished in the same playthrough**. The chapter button now uses **marked / all routes**, and each Risen 2 quest chapter shows an explicit notice that catalog totals include mutually exclusive outcomes and are **not** single-run 100% objectives. Other games' progress labels were deliberately left unchanged, and Risen 2 saved-completion keys were not migrated or erased.
+
+Added regression tests for both exact Glory rewards and explicit Native/Inquisition route presence.
+
+**Reconciled milestone:** Gamepressure original-game index name coverage (**310/310**) and source structure (**324 unique Questbound IDs, 0 blank required fields**) are satisfied. **Not established by these checks:** complete personal in-game playback of each quest, an authoritative all-faction completion percentage, or resolution of every disputed / edition-specific reward. Several chapter-3 entries were appended to preserve legacy playOrder IDs, so those entries should not be described as a perfectly chronological walkthrough in a single scrolling list until independently re-ordered for presentation.
+
+The revised UI avoids misrepresenting mutually exclusive quest lines as a 100%-achievable checklist. Final release green-build claim requires the new HEAD's `build` and `instrumentation` success.
+

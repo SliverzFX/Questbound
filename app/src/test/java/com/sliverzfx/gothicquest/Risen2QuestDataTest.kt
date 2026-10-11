@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 96, 164, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 109, 164, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(311, quests.size)
-        assertEquals(311, quests.map { it.id }.toSet().size)
-        assertEquals(311, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(324, quests.size)
+        assertEquals(324, quests.map { it.id }.toSet().size)
+        assertEquals(324, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -198,6 +198,21 @@ class Risen2QuestDataTest {
         assertEquals("The Jade Cave", byId.getValue("R2-C2-047").title)
         assertEquals("Eusebio's Debts", byId.getValue("R2-C2-061").title)
         assertTrue(byId.getValue("R2-C2-061").reward.contains("50 Glory"))
+    }
+
+    @Test fun swordCoastEscortJournalStagesHaveNonOverlappingNamesAndRouteChoices() {
+        val entries = Risen2GuidePart18Data.quests
+        assertEquals(13, entries.size)
+        assertEquals((97..109).toList(), entries.map { it.playOrder })
+        assertEquals(13, entries.map { it.id }.distinct().size)
+        assertTrue(entries.all { it.chapter == 2 && it.walkthroughSteps.size == 3 })
+        assertTrue(entries.all { it.reward.startsWith("10 Glory") })
+        val byTitle = entries.associateBy { it.title }
+        assertTrue(byTitle.getValue("Back to the Beginning").prerequisites.contains("Through the Rat Cave"))
+        assertTrue(byTitle.getValue("The Cave at the Pass").summary.contains("cave"))
+        assertTrue(byTitle.getValue("Across the River").prerequisites.contains("Just a Little Farther"))
+        assertTrue(byTitle.getValue("Farther Toward the Coast").warnings.contains("Cave Bat"))
+        assertEquals("A Terrible Feeling", Risen2QuestData.quests.single { it.id == "R2-C2-095" }.title)
     }
 
 }

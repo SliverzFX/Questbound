@@ -971,7 +971,8 @@ private fun NavChapterButton(
                 Text(
                     if (game == GameId.GOTHIC_3 && questCount == 0 && quests.isNotEmpty()) "${quests.size} reference guides"
                     else if ((game == GameId.RISEN_2 || game == GameId.RISEN_3) && questCount == 0) "Quest guide coming soon"
-                    else if (game == GameId.RISEN_2) "$completedCount / $questCount marked • all routes"\n                    else "$completedCount / $questCount completed • $percentage%",
+                    else if (game == GameId.RISEN_2) "$completedCount / $questCount marked • all routes"
+                    else "$completedCount / $questCount completed • $percentage%",
                     color = LocalGameGuidePalette.current.muted,
                     fontSize = if (compactTablet) 10.sp else if (tabletLandscape) (13f * tabletScale).sp else 11.sp
                 )

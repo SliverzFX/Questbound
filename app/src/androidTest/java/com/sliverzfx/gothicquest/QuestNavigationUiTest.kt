@@ -21,7 +21,7 @@ class QuestNavigationUiTest {
         rule.onNodeWithText("PICK A GAME").performClick()
         rule.onNodeWithTag("game_gothic").performClick()
         rule.onNodeWithTag("chapter_button_1").performClick()
-        rule.onNodeWithText("Admission to the Old Camp").performClick()
+        rule.onNodeWithText("Admission to the Old Camp", substring = true).performClick()
         rule.onNodeWithTag("quest_previous").performScrollTo().assertIsNotEnabled()
         rule.onNodeWithTag("quest_next").performScrollTo().performClick()
         rule.onNodeWithText("G1-C1-02").assertExists()

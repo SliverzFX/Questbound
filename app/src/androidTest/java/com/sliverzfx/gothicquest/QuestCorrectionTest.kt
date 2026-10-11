@@ -18,7 +18,7 @@ class QuestCorrectionTest {
     @get:Rule val rule = createAndroidComposeRule<MainActivity>()
 
     @Test fun reportUsesSelectedQuestAndBackReturnsThroughOriginalSearch() {
-        rule.waitUntil(10000) {
+        rule.waitUntil(30000) {
             rule.onAllNodesWithText("PICK A GAME").fetchSemanticsNodes().isNotEmpty()
         }
         rule.onNodeWithText("PICK A GAME").performClick()

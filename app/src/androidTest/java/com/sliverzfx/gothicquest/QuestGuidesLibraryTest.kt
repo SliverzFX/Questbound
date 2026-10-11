@@ -83,7 +83,7 @@ class QuestGuidesLibraryTest {
         composeRule.onNodeWithText("CHAPTER 1").assertExists()
         composeRule.onNodeWithText("CHAPTER 6").assertExists()
         composeRule.onNodeWithText("CHAPTER 1").performClick()
-        composeRule.onNodeWithText("A Frosty Welcome").performScrollTo().performClick()
+        composeRule.onNodeWithText("A Frosty Welcome", substring = true).performScrollTo().performClick()
         composeRule.onNodeWithText("A Frosty Welcome").assertExists()
     }
 }

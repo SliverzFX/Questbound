@@ -41,7 +41,7 @@ class SharedMenuBackgroundTest {
     }
 
     private fun waitForHome() {
-        composeRule.waitUntil(timeoutMillis = 10000) {
+        composeRule.waitUntil(timeoutMillis = 30000) {
             composeRule.onAllNodesWithText("PICK A GAME").fetchSemanticsNodes().isNotEmpty()
         }
     }

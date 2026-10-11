@@ -145,3 +145,36 @@ The original main-story entries **The Journey to the Underworld** and **The Skul
 - https://www.gamepressure.com/risen2/the-warriors-curse/zc3bdc
 - https://www.gamepressure.com/risen2/the-artists-curse/zc3bd3
 - https://www.gamepressure.com/risen2/the-treasure-in-the-tomb/zb3bdb
+
+
+## Maracai Bay expansion — 11 October 2026 (second major pass)
+
+**38 additional original-game Maracai Bay entries** have been verified against the individual Gamepressure journal-quest pages and committed without changing any legacy IDs.
+
+- `Risen2GuidePart12Data.kt`, **21 entries** (`R2-C3-090`–`110`): Valdez's Expedition and Hidden Valley, Corrientes's Deserter/Angus branch and Black Dog bounty, Mercutio's wreck supplies (distinct collection and hand-in), the secret fire-barrier discovery, Grave Robbers/Grave Idols/Peace of the Dead and Koraka chain, Map of Maracai, Jamila's Fire Peppers and Nice and Spicy, Bones's Unwanted Sermon, and The Naked Corpses.
+- `Risen2GuidePart13Data.kt`, **17 entries** (`R2-C3-111`–`127`): Datu's succession hub, Becoming Halmak, Zaalu/Hakeke branch-specific Black Hunter paws tests, Zaalu's Voodoo possession and three correct answers (**darkness, time, nothing**), Hakeke's four-feather trail, escorts, and the final challenge.
+- **Important lockout:** uncovering Corrientes's identity as Garcia before finishing available pirate village quests can cancel Deserter, Black Dog, Grave Robbers and other work. The Angus is Dead / Angus Rescued outcomes are alternatives; returning Angus to Valdez exposes the impostor. Every relevant card warns about the choice.
+- **Important faction separation:** the Native route uses Zaalu, Voodoo, and The Three Questions. The Inquisition route uses Hakeke, the Black Hunter and The Four Feathers. Weapons rewarded at the end of Chaka Datu's Legacy are alternatives, **not both rewards in one playthrough**.
+- **Rewards:** source-backed Glory/reward fields are populated. Some awards in parent and subquest chains are separate and combat XP depends on the kill. Requirements/Glory can vary with player choices.
+
+**New catalog total:** **270 Questbound records**: chapters 1/2/3/4 = **47 / 92 / 127 / 4**. Source scan: 270 unique IDs, 270 distinct English titles, no empty giver, prerequisite, reward, summary or walkthrough steps. All prior IDs/play orders remain intact; new entries were appended to chapter 3, preserving existing progress keys.
+
+Unit regression coverage now asserts the expanded totals, the 21 early Maracai objectives and 17 exclusive succession objectives. This only proves structural and explicitly asserted details, not that all in-game triggers/Glory values were personally re-played. GitHub Actions' current-commit build/unit/emulator results must be checked independently; earlier failure reports from intermediate commits can reflect temporarily stale quest counts.
+
+**Still genuinely open:** the full **71-title** Maracai reference name-by-name comparison (many smaller grave, beast, treasure, and optional escort tasks still need addition), Caldera II independent quests, Antigua and Sword Coast secondary omissions, uncertain rewards, and emulator/UI verification. Risen 2 is **not finished**.
+
+Original reference index:
+https://www.gamepressure.com/risen2/maracai-bay-quests/z93ad1
+
+Key quest-specific references:
+https://www.gamepressure.com/risen2/the-hidden-valley/ze3b09
+https://www.gamepressure.com/risen2/the-deserter/z93b04
+https://www.gamepressure.com/risen2/angus-rescued/zb3ad3
+https://www.gamepressure.com/risen2/garcias-masquerade-uncovered/z13ae8
+https://www.gamepressure.com/risen2/storage-barrels-from-the-wreck/zb3afa
+https://www.gamepressure.com/risen2/the-peace-of-the-dead/z73b0b
+https://www.gamepressure.com/risen2/black-dog/zf3ad7
+https://www.gamepressure.com/risen2/unwanted-sermon/za3b14
+https://www.gamepressure.com/risen2/chaka-datus-legacy/z03ad8
+https://www.gamepressure.com/risen2/the-three-questions/z93b0d
+https://www.gamepressure.com/risen2/the-four-feathers/zc3b07

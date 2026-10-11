@@ -223,3 +223,66 @@ Sources:
 - https://www.gamepressure.com/risen2/the-treasure-in-the-panther-cave/zb3b0f
 - https://www.gamepressure.com/risen2/the-treasure-on-the-pirate-coast/z73b11
 - https://www.supercheats.com/guides/risen-2-dark-waters/maracai-sidequests
+
+
+## 11 October 2026 — Caldera II, Antigua, Sword Coast title and reward reconciliation
+
+This section **supersedes earlier incomplete regional title lists**. No old quest ID or playOrder was removed/reassigned. The source catalog is now **324 distinct entries** grouped across Questbound's four navigation chapters as **47 / 109 / 164 / 4**, with 324 unique IDs, no duplicate English titles, and zero blank giver, prerequisite, reward, summary or walkthrough fields.
+
+### Added, preserving progress IDs
+
+- **Caldera II — Part 15**: 8 entries `R2-C3-152..159` — The Greedy Captain, Mauregato!, Follow the Servant, Errand Boy, Messenger's Attire, The Signet Ring, Scrolls Books and Shelves, Three New Recruits. Corrected existing `R2-C3-064` Following Garcia's Trail (Carlos; 500 Glory) and `R2-C3-065` Access to the Archives (Custodio; 200 Glory; 100 extra from duel). Both Voodoo/Mauregato and Azuro/pass alternatives described and appropriate document-order warning included.
+- **Antigua — Part 16**: 5 entries `R2-C3-160..164` — Gibson's Grave, The Treasure in the Grotto on Antigua, The Treasure on a Rocky Plateau of Antigua, Where Is Rick?, There's No Place Like Home. Explicitly distinguished Quinn's 200-Gold treasure map from his 300-Gold Gibson-room key.
+- **Sword Coast — Part 17**: 4 entries `R2-C2-093..096`: Interrogate Hawkins, The Warriors in Front of the Temple!, A Terrible Feeling, Through the Rat Cave. Part 17 originally duplicated Back to the Village with Hikoko; that duplicate was replaced with the documented A Terrible Feeling before this sign-off. The true existing Hikoko quest remains `R2-C2-049`.
+- **Sword Coast escorts — Part 18**: 13 quest-journal stages `R2-C2-097..109`, including To the Natives, Over the Pass, The Cave at the Pass, Down into the Valley, Across the River, To Puerto Isabella, Over the Bridge, Farther South, Back to the Beginning and the coastal alternative through Puerto Isabella's gates. Each uses its documented 10-Glory step, and warnings distinguish alternate paths.
+- Reclassified **existing** `R2-C2-047` as The Jade Cave, and `R2-C2-061` as Eusebio's Debts, matching actual journal titles while preserving IDs.
+
+### Coverage against original 2012 complete Gamepressure Risen 2 quest-index title listing
+
+All the following region-title lists were reconciled, including known alternate English spelling of Steelbeard's Artifact/Artefact:
+
+| Guide region | Original guide title count | Name-coverage |
+| --- | ---: | --- |
+| Caldera | 7 | All represented |
+| Tacarigua | 38 | All represented |
+| Sword Coast | 107 | All represented |
+| Antigua | 37 | All represented |
+| Isle of Thieves | 17 | All represented |
+| Caldera II | 12 | All represented |
+| Maracai Bay | 71 | All represented |
+| Isle of the Dead | 17 | All represented |
+| Water Temple | 4 | All represented |
+| **Total original index** | **310** | **All 310 accounted for** |
+
+**Important counting distinction:** Questbound has **324 source records** and the Gamepressure region index has **310 unique listed titles**. Questbound includes some additional story hubs, differently named subquest records and merged/unmerged guide objectives, and some faction tasks cannot all complete in one playthrough. **Do not claim there are 324 in-game journal quests or that a 100% progress bar is achievable in one faction route.** A separate classification of legacy nonjournal hub entries and mutually-exclusive progress rules should be completed before publishing a completionist percentage.
+
+### Exact reward, giver and completion fixes (supplement)
+
+- Tacarigua: Grog for the Guards 50 Glory; A Hungry Slave 50 Glory; Pirate Post 100 Glory with conditional gold; Bounty 200 Glory; The Termite Plague 100 Glory + 150 Gold for all 13 termites; Largo's Clothes 100 Glory + 1,000 Gold; Night-time Pursuit **no separate Glory**.
+- Sword Coast: Talk to the Pirates at the Tower is a **zero-reward introductory journal stage**; Defeat the Lookouts 100 Glory; The Natives 100 Glory; Crow's Ship 100; Where Is Crow's Ship? 100; Shaganumbi Tribe discovery 50; Duel with Masaru 100 plus 75 for defeat; The Search for the Idol 10; Basil Is Dead! 50; Bartering is a **Torres → Tito → Torres meat parcel** exchange (50 Glory, 200 Gold); Follow Venturo to the City 10 Glory.
+- Maracai/Isle Dead: Message from World of Living (Bones → Confused Ghost) 100 Glory; Message from Afterlife (Confused Ghost → Bones) 100; Blood of the Ancestors 200; Search Garcia's Possessions 200; Seize Garcia's Ship 200; Garcia's Logbook 100; Garcia's Treasure 200 plus Earth Amulet.
+- Finale: Removed incorrect claim of roughly seven mouth hits against Kraken. Original guide says **four successful mouth hits, then a final precise throw** as the Kraken rises. The Water Temple is one-way; make a separate permanent save before departure.
+- Some quests have no separate numerical reward, while others have genuine guide disagreements; leave explicit statements rather than invent exact payouts.
+
+Unit regression tests now validate the 324-record counts/IDs and major confirmed corrections (including the Kraken attack sequence); the full Android **build+JVM+emulator UI test run must be assessed at the newest HEAD**. Intermediate GitHub Actions runs may fail due temporarily obsolete totals, not necessarily source or UI regression.
+
+### Original-game source references used
+
+- https://www.gamepressure.com/risen2/
+- https://www.gamepressure.com/risen2/the-greedy-captain/z23a77
+- https://www.gamepressure.com/risen2/errand-boy/z43a73
+- https://www.gamepressure.com/risen2/scrolls-books-and-shelves/z93a75
+- https://www.gamepressure.com/risen2/where-is-rick/z83ba5
+- https://www.gamepressure.com/risen2/gibsons-grave/ze3b9e
+- https://www.gamepressure.com/risen2/the-jade-cave/ze3909
+- https://www.gamepressure.com/risen2/bartering/z03904
+- https://www.gamepressure.com/risen2/follow-venturo-to-the-city/z93a32
+- https://www.gamepressure.com/risen2/a-message-from-the-world-of-the-living/z93bca
+- https://www.gamepressure.com/risen2/a-message-from-the-afterlife/zb3bcc
+- https://www.gamepressure.com/risen2/garcias-logbook/z03ae7
+- https://www.gamepressure.com/risen2/search-garcias-possessions/z03af6
+- https://www.gamepressure.com/risen2/garcias-treasure/za3aea
+- https://www.gamepressure.com/risen2/seize-garcias-ship/z23af8
+- https://www.gamepressure.com/risen2/defeat-the-kraken/za3bc2
+
+**Source-data verdict:** Quest-title coverage complete against this index; exact numerical rewards and legacy progress classification still contain some explicitly documented uncertainty. **Release verdict:** Green CI on the newest commit and UI/real-device QA not yet confirmed at the time of writing.

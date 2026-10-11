@@ -26,10 +26,10 @@ internal object Risen2GuidePart8Data {
             giver = "Trigger quest",
             location = "Water Temple",
             prerequisites = "Finish the four-artefact search, learn the Water Temple location and choose to sail there; the Kraken attacks the ship during the approach.",
-            summary = "Use the Titan Harpoon and land roughly seven direct hits into the Kraken's open mouth.",
-            walkthroughSteps = listOf("Walkthrough. The Kraken attacks the ship from alternating sides. Keep moving and watch its head rather than its tentacles. When it opens its mouth before an attack, aim the Titan Harpoon slightly above the apparent centre of the mouth and throw. If the mouth is closed, prioritise dodging instead of wasting the Harpoon throw. You can heal during the encounter, so use consumables between attack windows.", "Completion. After roughly seven successful mouth hits, the Kraken dies and the ship reaches the Water Temple."),
+            summary = "Use the Titan Harpoon: land four mouth hits during the Kraken's attack cycle, then a decisive precision throw when it rises.",
+            walkthroughSteps = listOf("When the Kraken alternates sides of the ship, dodge the tentacles and throw the Titan Harpoon only while its mouth opens. Healing between attacks is possible.", "After four successful mouth hits the Kraken surfaces higher and opens its mouth for a final precise throw. If you miss that last opportunity, repeat the sequence.", "Hit the fully exposed mouth to finish the battle; Mara retreats to the Water Temple and the ship reaches shore."),
             reward = "1000 Glory + 1000 Glory for the kill",
-            warnings = "⚠ Important: Do not treat this like the Earth Titan fight. The vulnerable target is specifically the Kraken's open mouth.",
+            warnings = "The guide describes four setup hits and a final precision throw, not seven fixed hits. Do not waste the Titan Harpoon against closed jaws.",
             searchTags = listOf("Defeat the Kraken", "C. KRAKEN BATTLE", "Automatic during The Water Temple", "Water Temple"),
         ),
         Quest(

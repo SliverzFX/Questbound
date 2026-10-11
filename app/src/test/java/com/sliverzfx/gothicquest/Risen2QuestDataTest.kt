@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 80, 76, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 76, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(207, quests.size)
-        assertEquals(207, quests.map { it.id }.toSet().size)
-        assertEquals(207, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(219, quests.size)
+        assertEquals(219, quests.map { it.id }.toSet().size)
+        assertEquals(219, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -55,6 +55,37 @@ class Risen2QuestDataTest {
         assertEquals(setOf("R2-C1-047", "R2-C2-080", "R2-C3-076"), restored.map { it.id }.toSet())
         assertTrue(restored.all { it.walkthroughSteps.size >= 3 && it.reward.isNotBlank() })
         assertTrue(GameId.RISEN_2.chapterQuests(1).all { it.prerequisites.isNotBlank() })
+    }
+
+    @Test fun chapterTwoDataHavePrerequisitesAndFactionsKeepTheirRoutes() {
+        val chapterTwo = GameId.RISEN_2.chapterQuests(2)
+        assertTrue(chapterTwo.all { it.prerequisites.isNotBlank() && it.giver.isNotBlank() && it.reward.isNotBlank() })
+        val byId = chapterTwo.associateBy { it.id }
+        assertTrue(byId.getValue("R2-C2-004").prerequisites.contains("Free Tahana"))
+        assertTrue(byId.getValue("R2-C2-004").prerequisites.contains("The Lookout's Report"))
+        assertEquals("Nakutu", byId.getValue("R2-C2-010").giver)
+        assertEquals("Badriya", byId.getValue("R2-C2-011").giver)
+        assertEquals("50 Glory", byId.getValue("R2-C2-010").reward)
+    }
+
+    @Test fun newSwordCoastSideQuestRecordsAreUniqueAndActionable() {
+        val quests = Risen2GuidePart10Data.quests
+        assertEquals(12, quests.size)
+        assertEquals((81..92).toList(), quests.map { it.playOrder })
+        assertEquals(12, quests.map { it.id }.toSet().size)
+        assertTrue(quests.all { it.chapter == 2 && it.walkthroughSteps.size == 3 })
+        assertTrue(quests.all { it.prerequisites.isNotBlank() && it.reward.isNotBlank() })
+        assertEquals("0 Glory; 600 Gold, golden plate, jade, goblet and mask",
+            quests.single { it.title == "The Treasure on Puerto Isabella Beach" }.reward)
+    }
+
+    @Test fun allRisen2QuestsHaveCompleteStructuralMetadata() {
+        val quests = Risen2QuestData.quests
+        assertTrue(quests.all {
+            it.id.isNotBlank() && it.title.isNotBlank() && it.giver.isNotBlank() &&
+            it.prerequisites.isNotBlank() && it.reward.isNotBlank() &&
+            it.summary.isNotBlank() && it.walkthroughSteps.isNotEmpty()
+        })
     }
 
 }

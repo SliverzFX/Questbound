@@ -224,7 +224,7 @@ internal object Risen2GuidePart14Data {
             prerequisites = "Accept The Beast in the Lake from Hanu or encounter the named Alligator Beast at the lake.",
             summary = "Kill Beast, the named Alligator.",
             walkthroughSteps = listOf("Locate the lake near Hanu's camp on the main Maracai approach.", "Find and defeat the named Alligator Beast near the water.", "The kill completes this milestone; return to Hanu to conclude The Beast in the Lake and obtain his treasure lead."),
-            reward = "Glory for killing Beast; separate exact milestone reward not verified",
+            reward = "50 Glory for the quest milestone; 200 Glory for killing the named Alligator",
             warnings = "Defeat the correct named Alligator; other wildlife kills do not satisfy Hanu's quest.",
             searchTags = listOf("The Beast Is Dead", "Automatic kill milestone", "Maracai Bay", "BOTH"),
         ),

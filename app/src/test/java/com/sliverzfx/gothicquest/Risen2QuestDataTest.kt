@@ -230,4 +230,23 @@ class Risen2QuestDataTest {
         assertTrue(byId.getValue("R2-C2-034").giver.startsWith("Automatic"))
     }
 
+    @Test fun finaleCombatAndMaracaiRewardsMatchVerifiedWalkthroughs() {
+        val quests = Risen2QuestData.quests.associateBy { it.id }
+        val kraken = quests.getValue("R2-C4-002")
+        assertTrue(kraken.summary.contains("four mouth hits"))
+        assertTrue(kraken.walkthroughSteps.any { it.contains("four successful mouth hits") })
+        assertFalse(kraken.summary.contains("seven direct hits"))
+        assertEquals("50 Glory and 200 Gold", quests.getValue("R2-C2-019").reward)
+        assertEquals("Torres", quests.getValue("R2-C2-019").giver)
+        assertEquals("10 Glory", quests.getValue("R2-C2-035").reward)
+        assertEquals("100 Glory", quests.getValue("R2-C3-062").reward)
+        assertEquals("100 Glory", quests.getValue("R2-C3-063").reward)
+        assertEquals("200 Glory", quests.getValue("R2-C3-068").reward.substringBefore(";"))
+        assertEquals("200 Glory", quests.getValue("R2-C3-069").reward)
+        assertEquals("200 Glory", quests.getValue("R2-C3-070").reward.substringBefore(";"))
+        assertEquals("100 Glory", quests.getValue("R2-C3-071").reward)
+        assertTrue(quests.getValue("R2-C3-075").reward.contains("Earth Amulet"))
+        assertTrue(quests.getValue("R2-C1-032").reward.contains("No separate Glory"))
+    }
+
 }

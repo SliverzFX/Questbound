@@ -192,7 +192,8 @@ class Risen2QuestDataTest {
         assertEquals((93..96).toList(), added.map { it.playOrder })
         assertTrue(added.all { it.chapter == 2 && it.walkthroughSteps.size == 3 })
         assertEquals("50 Glory", added.single { it.title == "Interrogate Hawkins" }.reward)
-        assertEquals("10 Glory", added.single { it.title == "Back to the Village with Hikoko" }.reward)
+        assertEquals("10 Glory; Cave Bat kill Glory awarded separately", added.single { it.title == "A Terrible Feeling" }.reward)
+        assertEquals("Back to the Village with Hikoko", Risen2QuestData.quests.single { it.id == "R2-C2-049" }.title)
         val byId = Risen2QuestData.quests.associateBy { it.id }
         assertEquals("The Jade Cave", byId.getValue("R2-C2-047").title)
         assertEquals("Eusebio's Debts", byId.getValue("R2-C2-061").title)

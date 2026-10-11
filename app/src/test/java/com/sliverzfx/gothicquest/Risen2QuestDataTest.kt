@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 151, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 159, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(294, quests.size)
-        assertEquals(294, quests.map { it.id }.toSet().size)
-        assertEquals(294, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(302, quests.size)
+        assertEquals(302, quests.map { it.id }.toSet().size)
+        assertEquals(302, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -152,6 +152,24 @@ class Risen2QuestDataTest {
         assertTrue(byTitle.getValue("The Beast Is Dead").reward.contains("not verified"))
         assertEquals("50 Glory", byTitle.getValue("The White Feather").reward)
         assertEquals("50 Glory", byTitle.getValue("The Yellow Feather").reward)
+    }
+
+    @Test fun calderaTwoCompleteOriginalIndexKeepsAlternativeArchiveRoutesDistinct() {
+        val newQuests = Risen2GuidePart15Data.quests
+        assertEquals(8, newQuests.size)
+        assertEquals((152..159).toList(), newQuests.map { it.playOrder })
+        assertTrue(newQuests.all { it.chapter == 3 && it.walkthroughSteps.size == 3 })
+        assertEquals(8, newQuests.map { it.id }.distinct().size)
+        val byTitle = newQuests.associateBy { it.title }
+        assertEquals("Carlos", byTitle.getValue("Mauregato!").giver)
+        assertEquals("Azuro", byTitle.getValue("Errand Boy").giver)
+        assertEquals("10 Glory", byTitle.getValue("Follow the Servant").reward)
+        assertEquals("200 Glory", byTitle.getValue("Scrolls, Books and Shelves").reward)
+        assertTrue(byTitle.getValue("The Signet Ring").walkthroughSteps.any { it.contains("Hermina") })
+        val quests = Risen2QuestData.quests.associateBy { it.id }
+        assertEquals("Custodio", quests.getValue("R2-C3-065").giver)
+        assertEquals("500 Glory", quests.getValue("R2-C3-064").reward)
+        assertTrue(quests.getValue("R2-C3-065").reward.contains("200 Glory"))
     }
 
 }

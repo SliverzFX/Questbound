@@ -263,6 +263,10 @@ class Risen2QuestDataTest {
         assertTrue(chapter3.any { it.title == "Paws for Zaalu" && it.category.contains("NATIVE") })
         assertTrue(chapter3.any { it.title == "Paws for Hakeke" && it.category.contains("INQUISITION") })
         assertEquals(324, Risen2QuestData.quests.size)
+        assertEquals(
+            "50 Glory for the quest milestone; 200 Glory for killing the named Alligator",
+            byId.getValue("R2-C3-142").reward
+        )
     }
 
 }

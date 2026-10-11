@@ -110,3 +110,38 @@ A direct source-level scan of Parts 1–10 found **0 duplicate IDs, 0 duplicate 
 - [Gamepressure — The Treasure in the Valley of the Jaguar](https://www.gamepressure.com/risen2/the-treasure-in-the-valley-of-the-jaguar/ze391a)
 
 **Status: Risen 2 prerequisite reconciliation is complete; total-quest coverage, item/reward accuracy, and final release verification remain underway.**
+
+
+## Isle of the Dead quest-index expansion — 11 October 2026 (continued)
+
+**Thirteen more actual in-game journal quests have been added** in `Risen2GuidePart11Data.kt` as stable new IDs `R2-C3-077` through `R2-C3-089`:
+
+1. Akando's Chest
+2. Black Lotus
+3. Defeat Kusko
+4. Follow Motega
+5. Grave Dust
+6. The Artist's Curse
+7. The Hunt
+8. The Hunter's Curse
+9. The Potion of False Death
+10. The Silverback Is Dead
+11. The Thief's Curse
+12. The Treasure in the Tomb
+13. The Warrior's Curse
+
+The original main-story entries **The Journey to the Underworld** and **The Skull Sceptre** were upgraded with exact ingredients and prerequisite quest relationships: Tao requires **five Black Lotus flowers and six Grave Dust containers**; Nahele requires **Steelbeard's Hat, Akando's White Diamond, Kusko's Spear and Motega's undead-animal skull** to make the sceptre. Separately awarded Glory is attached to each individual collection or combat stage, rather than counted as a single reward.
+
+**Source catalog now: 232 entries, all unique, grouped 47 / 92 / 89 / 4; 0 blank required fields.** All legacy IDs preserved, and new tests cover the thirteen Isle of the Dead entries. These are static integrity results, not completed emulator test claims. The Isle of the Dead quest-title list is now represented, except for any alternative title variants or playthrough-specific branch differences that may emerge from final comparison.
+
+**Remaining major content work:** Maracai Bay standalone quests and Caldera II side missions; other Sword Coast and Antigua microquests/treasures; remaining imprecise Glory rewards and giver claims; duplicate/guide-only classification once full coverage is assembled. Do not call Risen 2 completely finished or claim Android UI testing passed.
+
+**Sources:**
+- https://www.gamepressure.com/risen2/isle-of-the-dead-quests/za3bcb
+- https://www.gamepressure.com/risen2/akandos-chest/zc3bcd
+- https://www.gamepressure.com/risen2/black-lotus/zd3bce
+- https://www.gamepressure.com/risen2/grave-dust/za3bd1
+- https://www.gamepressure.com/risen2/the-hunters-curse/ze3bd5
+- https://www.gamepressure.com/risen2/the-warriors-curse/zc3bdc
+- https://www.gamepressure.com/risen2/the-artists-curse/zc3bd3
+- https://www.gamepressure.com/risen2/the-treasure-in-the-tomb/zb3bdb

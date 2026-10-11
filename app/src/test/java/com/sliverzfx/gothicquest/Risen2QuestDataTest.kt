@@ -149,7 +149,7 @@ class Risen2QuestDataTest {
         assertEquals("Cordobar", byTitle.getValue("Garcia's Ship").giver)
         assertEquals("100 Glory", byTitle.getValue("The Treasure on the Hunting Grounds").reward.substringBefore(";"))
         assertTrue(byTitle.getValue("The Treasure in the Panther Cave").reward.contains("disagreement"))
-        assertTrue(byTitle.getValue("The Beast Is Dead").reward.contains("not verified"))
+        assertTrue(byTitle.getValue("The Beast Is Dead").reward.contains("50 Glory"))
         assertEquals("50 Glory", byTitle.getValue("The White Feather").reward)
         assertEquals("50 Glory", byTitle.getValue("The Yellow Feather").reward)
     }
@@ -267,6 +267,8 @@ class Risen2QuestDataTest {
             "50 Glory for the quest milestone; 200 Glory for killing the named Alligator",
             byId.getValue("R2-C3-142").reward
         )
+        assertTrue(byId.getValue("R2-C3-141").reward.contains("100 Glory"))
+        assertTrue(byId.getValue("R2-C3-141").reward.contains("Treasure on the Hunting Grounds"))
     }
 
 }

@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 127, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 151, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(270, quests.size)
-        assertEquals(270, quests.map { it.id }.toSet().size)
-        assertEquals(270, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(294, quests.size)
+        assertEquals(294, quests.map { it.id }.toSet().size)
+        assertEquals(294, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -136,6 +136,22 @@ class Risen2QuestDataTest {
         assertTrue(byTitle.getValue("Chaka Datu's Legacy").warnings.contains("mutually exclusive"))
         assertEquals("Datu", byTitle.getValue("Datu's Second Question").giver)
         assertEquals("100 Glory", byTitle.getValue("Datu's Third Question").reward)
+    }
+
+    @Test fun completeMaracaiReferenceTitleCatalogHasNoMissingStandaloneJournalNames() {
+        val additional = Risen2GuidePart14Data.quests
+        assertEquals(24, additional.size)
+        assertEquals((128..151).toList(), additional.map { it.playOrder })
+        assertTrue(additional.all { it.chapter == 3 && it.prerequisites.isNotBlank() && it.walkthroughSteps.size == 3 })
+        val byTitle = additional.associateBy { it.title }
+        assertTrue(byTitle.getValue("Duel with Hakeke's Halmak").category.contains("NATIVE"))
+        assertTrue(byTitle.getValue("Duel with Zaalu's Halmak").category.contains("INQUISITION"))
+        assertEquals("Cordobar", byTitle.getValue("Garcia's Ship").giver)
+        assertEquals("100 Glory", byTitle.getValue("The Treasure on the Hunting Grounds").reward.substringBefore(";"))
+        assertTrue(byTitle.getValue("The Treasure in the Panther Cave").reward.contains("disagreement"))
+        assertTrue(byTitle.getValue("The Beast Is Dead").reward.contains("not verified"))
+        assertEquals("50 Glory", byTitle.getValue("The White Feather").reward)
+        assertEquals("50 Glory", byTitle.getValue("The Yellow Feather").reward)
     }
 
 }

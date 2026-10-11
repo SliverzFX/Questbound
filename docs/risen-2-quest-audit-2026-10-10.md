@@ -178,3 +178,17 @@ https://www.gamepressure.com/risen2/unwanted-sermon/za3b14
 https://www.gamepressure.com/risen2/chaka-datus-legacy/z03ad8
 https://www.gamepressure.com/risen2/the-three-questions/z93b0d
 https://www.gamepressure.com/risen2/the-four-feathers/zc3b07
+
+
+### Exact Maracai Bay reference-name coverage crosswalk (October 11, 2026)
+
+Compared the **71 original quest titles** listed under the [Gamepressure Maracai Bay index](https://www.gamepressure.com/risen2/maracai-bay-quests/z93ad1) against `Risen2GuidePart1Data.kt` through `Risen2GuidePart13Data.kt`, including existing Garcia, Bones and Antigua hand-ins regardless of Questbound app chapter. Case and punctuation were normalized. **47 of 71** are already represented by matching titles, leaving **24 named standalone objectives** still missing:
+
+- **Succession/escort/duels (11):** Back to the Village with Zaalu; Duel with Hakeke's Halmak; Duel with Zaalu's Halmak; Follow Daiki to the Ritual Site; Follow Hakeke; Follow Hakeke Through the Jungle; Follow Hakeke to the Cave; Follow Potaka to the Ritual Site; Follow Zaalu; Follow Zaalu Through the Jungle; Get Rid of Potaka.
+- **Story/combat/discovery (5):** Garcia's Ship (separate from Seize Garcia's Ship); The Barrier of Flames; The Beast in the Lake; The Beast Is Dead; The Graves of the Ancestors.
+- **Feather pickups (4):** The Black Feather; The Blue Feather; The White Feather; The Yellow Feather.
+- **Treasure hunts (4):** The Treasure in the Hidden Valley; The Treasure in the Panther Cave; The Treasure on the Hunting Grounds; The Treasure on the Pirate Coast.
+
+This is a **title-to-title coverage comparison**, not a guarantee of identical quest triggers or full reward accuracy. Some quests may be folded into higher-level descriptions; add them as distinct progress records only when an original guide confirms a distinct journal objective. Each new entry must have a stable appended chapter-3 ID and its quest-specific source cited here. A documented branch alternative is never a second quest completable on the same playthrough.
+
+**CI at this checkpoint:** the source head with 270 entries (`e56aaed3692f...`) **passed its Android build and JVM unit-test job** in GitHub Actions run `38120114792`. Emulator instrumentation was still running at the last check, so it is not yet an overall green run.

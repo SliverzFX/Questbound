@@ -971,7 +971,7 @@ private fun NavChapterButton(
                 Text(
                     if (game == GameId.GOTHIC_3 && questCount == 0 && quests.isNotEmpty()) "${quests.size} reference guides"
                     else if ((game == GameId.RISEN_2 || game == GameId.RISEN_3) && questCount == 0) "Quest guide coming soon"
-                    else "$completedCount / $questCount completed • $percentage%",
+                    else if (game == GameId.RISEN_2) "$completedCount / $questCount marked • all routes"\n                    else "$completedCount / $questCount completed • $percentage%",
                     color = LocalGameGuidePalette.current.muted,
                     fontSize = if (compactTablet) 10.sp else if (tabletLandscape) (13f * tabletScale).sp else 11.sp
                 )
@@ -1081,12 +1081,21 @@ private fun NavChapterQuestListScreen(
             Text("${game.displayTitle} — ${game.sectionLabel} $chapter", color = LocalGameGuidePalette.current.accent, fontSize = (25f * tabletScale).sp, fontWeight = FontWeight.Bold)
             Text(
                 if (game == GameId.GOTHIC_3 || game == GameId.RISEN) "$visibleCount / ${journalQuests.size} QUESTS • ${referenceGuides.size} REFERENCE GUIDES"
+                else if (game == GameId.RISEN_2) "$visibleCount / ${journalQuests.size} QUESTS VISIBLE • ALL ROUTES"
                 else if (visibleCount == quests.size) "${quests.size} QUESTS • CHRONOLOGICAL ORDER"
                 else "$visibleCount / ${quests.size} QUESTS VISIBLE • CHRONOLOGICAL ORDER",
                 color = LocalGameGuidePalette.current.muted,
                 fontSize = 12.sp
             )
             Spacer(Modifier.height(18.dp))
+            if (game == GameId.RISEN_2 && quests.isNotEmpty()) {
+                Text(
+                    "Completion marks cover all documented options. Native and Inquisition routes, and some alternative quest outcomes, cannot all be finished in one playthrough. The chapter total is not a single-run 100% target.",
+                    color = LocalGameGuidePalette.current.muted,
+                    fontSize = (12f * tabletScale).sp
+                )
+                Spacer(Modifier.height(14.dp))
+            }
             if ((game == GameId.RISEN_2 || game == GameId.RISEN_3) && quests.isEmpty()) {
                 Text(
                     "The quest guide for this chapter is coming soon.",

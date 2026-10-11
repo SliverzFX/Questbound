@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 76, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 89, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(219, quests.size)
-        assertEquals(219, quests.map { it.id }.toSet().size)
-        assertEquals(219, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(232, quests.size)
+        assertEquals(232, quests.map { it.id }.toSet().size)
+        assertEquals(232, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -86,6 +86,22 @@ class Risen2QuestDataTest {
             it.prerequisites.isNotBlank() && it.reward.isNotBlank() &&
             it.summary.isNotBlank() && it.walkthroughSteps.isNotEmpty()
         })
+    }
+
+    @Test fun isleOfTheDeadQuestChainHasCorrectSubquestMilestones() {
+        val addition = Risen2GuidePart11Data.quests
+        assertEquals(13, addition.size)
+        assertEquals((77..89).toList(), addition.map { it.playOrder })
+        assertEquals(13, addition.map { it.id }.distinct().size)
+        assertTrue(addition.all { it.chapter == 3 && it.walkthroughSteps.size == 3 })
+        val entries = addition.associateBy { it.title }
+        assertEquals("50 Glory", entries.getValue("Black Lotus").reward)
+        assertEquals("50 Glory", entries.getValue("Grave Dust").reward)
+        assertTrue(entries.getValue("Akando's Chest").walkthroughSteps.any { it.contains("Nahele") })
+        assertTrue(entries.getValue("The Hunter's Curse").reward.contains("Skull of an undead animal"))
+        val main = Risen2QuestData.quests.associateBy { it.id }
+        assertTrue(main.getValue("R2-C3-058").summary.contains("five Black Lotus"))
+        assertTrue(main.getValue("R2-C3-059").summary.contains("Nahele"))
     }
 
 }

@@ -192,3 +192,34 @@ Compared the **71 original quest titles** listed under the [Gamepressure Maracai
 This is a **title-to-title coverage comparison**, not a guarantee of identical quest triggers or full reward accuracy. Some quests may be folded into higher-level descriptions; add them as distinct progress records only when an original guide confirms a distinct journal objective. Each new entry must have a stable appended chapter-3 ID and its quest-specific source cited here. A documented branch alternative is never a second quest completable on the same playthrough.
 
 **CI at this checkpoint:** the source head with 270 entries (`e56aaed3692f...`) **passed its Android build and JVM unit-test job** in GitHub Actions run `38120114792`. Emulator instrumentation was still running at the last check, so it is not yet an overall green run.
+
+
+## Maracai Bay title coverage closed — 11 October 2026
+
+This latest section **supersedes** the prior list of 24 unmatched Maracai titles above. All **24** have now been added as source-backed standalone journal entries in `Risen2GuidePart14Data.kt`, IDs `R2-C3-128`–`151`.
+
+The entries cover:
+- Native/Inquisition contender escorts and **both mutually exclusive final Halmak duels**; Daiki/Potaka qualifying quests are not the same as the later final duels.
+- Cordobar's **Garcia's Ship** quest (reporting back after boarding), distinct from **Seize Garcia's Ship** (defeating four guards).
+- The **Barrier of Flames** (separate from Secret Entrance Found), Hanu's **The Beast in the Lake / The Beast Is Dead**, the four ancestral masks and **The Graves of the Ancestors**.
+- The **four feather pickups**, each 50 Glory on the Inquisition route, separate from The Four Feathers hub.
+- The **four Maracai treasure quests**: Hidden Valley, Panther Cave, Hunting Grounds and Pirate Coast.
+
+**Maracai Bay title comparison: 71 of 71 titles accounted for** against the Gamepressure quest index as of this source review, counting matching quests previously recorded in existing quest files regardless of app chapter. This is a **title-coverage sign-off for Maracai Bay**, not a claim that mutually exclusive quests are all completable together or that every reward has been independently tested in-game.
+
+**Sources disagree:** Gamepressure lists 200 Glory for Panther Cave treasure, while GameFAQs/Neoseeker gives 100 Glory; the card explicitly records this rather than falsely choosing one. The exact separate Glory payout for Hanu's Beast in the Lake chain is not independently confirmed and is marked accordingly.
+
+**New overall source catalog: 294 unique entries**, chapter counts **47 / 92 / 151 / 4**, no duplicate IDs or duplicate titles, no blank giver/prerequisite/reward/summary/steps. The old entries' IDs/playOrder were preserved and new chapter-3 records appended.
+
+**Outstanding outside Maracai:** Caldera II quests (notably Mauregato and Archives options), Antigua and Sword Coast smaller journal objectives, and remaining quantitative reward checks. CI must be checked at the current commit; emulator UI issues from earlier runs remain a separate app-release blocker.
+
+Sources:
+- https://www.gamepressure.com/risen2/maracai-bay-quests/z93ad1
+- https://www.gamepressure.com/risen2/garcias-ship/z23ae9
+- https://www.gamepressure.com/risen2/the-barrier-of-flames/ze3afd
+- https://www.gamepressure.com/risen2/the-graves-of-the-ancestors/zd3b08
+- https://www.gamepressure.com/risen2/the-four-feathers/zc3b07
+- https://www.gamepressure.com/risen2/the-treasure-in-the-hidden-valley/za3b0e
+- https://www.gamepressure.com/risen2/the-treasure-in-the-panther-cave/zb3b0f
+- https://www.gamepressure.com/risen2/the-treasure-on-the-pirate-coast/z73b11
+- https://www.supercheats.com/guides/risen-2-dark-waters/maracai-sidequests

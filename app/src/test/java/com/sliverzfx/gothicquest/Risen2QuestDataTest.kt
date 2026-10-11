@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 110, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 127, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(253, quests.size)
-        assertEquals(253, quests.map { it.id }.toSet().size)
-        assertEquals(253, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(270, quests.size)
+        assertEquals(270, quests.map { it.id }.toSet().size)
+        assertEquals(270, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -119,6 +119,23 @@ class Risen2QuestDataTest {
         assertTrue(byTitle.getValue("Angus is Dead").warnings.contains("Angus Rescued"))
         assertTrue(byTitle.getValue("The Naked Corpses").prerequisites.contains("Garcia"))
         assertTrue(byTitle.getValue("Unwanted Sermon").summary.contains("Bones"))
+    }
+
+    @Test fun maracaiSuccessionBranchesAreSeparateAndValid() {
+        val quests = Risen2GuidePart13Data.quests
+        assertEquals(17, quests.size)
+        assertEquals((111..127).toList(), quests.map { it.playOrder })
+        assertEquals(17, quests.map { it.id }.distinct().size)
+        assertTrue(quests.all { it.prerequisites.isNotBlank() && it.walkthroughSteps.size == 3 })
+        val byTitle = quests.associateBy { it.title }
+        assertTrue(byTitle.getValue("Paws for Hakeke").category.contains("INQUISITION"))
+        assertTrue(byTitle.getValue("Paws for Zaalu").category.contains("NATIVE"))
+        assertTrue(byTitle.getValue("The Four Feathers").category.contains("INQUISITION"))
+        assertTrue(byTitle.getValue("The Three Questions").category.contains("NATIVE"))
+        assertTrue(byTitle.getValue("Become Halmak of the Maracai").warnings.contains("Intimidation"))
+        assertTrue(byTitle.getValue("Chaka Datu's Legacy").warnings.contains("mutually exclusive"))
+        assertEquals("Datu", byTitle.getValue("Datu's Second Question").giver)
+        assertEquals("100 Glory", byTitle.getValue("Datu's Third Question").reward)
     }
 
 }

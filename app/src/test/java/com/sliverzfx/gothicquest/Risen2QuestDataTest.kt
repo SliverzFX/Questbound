@@ -249,4 +249,20 @@ class Risen2QuestDataTest {
         assertTrue(quests.getValue("R2-C1-032").reward.contains("No separate Glory"))
     }
 
+    @Test fun verifiedRiverAndChaniRewardsAndExclusiveRoutes() {
+        val byId = Risen2QuestData.quests.associateBy { it.id }
+        val river = byId.getValue("R2-C2-012")
+        assertTrue(river.reward.contains("100 Glory"))
+        assertTrue(river.reward.contains("200 Glory"))
+        assertTrue(river.walkthroughSteps.any { it.contains("automatically completes") })
+        assertEquals("100 Glory; unlocks Free Tahana", byId.getValue("R2-C2-020").reward)
+        val chapter2 = Risen2QuestData.chapter(2)
+        assertTrue(chapter2.any { it.category.contains("NATIVE") })
+        assertTrue(chapter2.any { it.category.contains("INQUISITION") })
+        val chapter3 = Risen2QuestData.chapter(3)
+        assertTrue(chapter3.any { it.title == "Paws for Zaalu" && it.category.contains("NATIVE") })
+        assertTrue(chapter3.any { it.title == "Paws for Hakeke" && it.category.contains("INQUISITION") })
+        assertEquals(324, Risen2QuestData.quests.size)
+    }
+
 }

@@ -1,0 +1,67 @@
+package com.sliverzfx.gothicquest
+
+/** Restored original Sword Coast journal objectives verified against separate walkthroughs. */
+internal object Risen2GuidePart17Data {
+    val quests: List<Quest> = listOf(
+        Quest(
+            id = "R2-C2-093",
+            chapter = 2,
+            playOrder = 93,
+            title = "Interrogate Hawkins",
+            category = "SWORD COAST — JOURNAL QUEST",
+            giver = "Sebastiano",
+            location = "Sword Coast — Puerto Isabella prison tower",
+            prerequisites = "Reach Puerto Isabella and speak with Commandant Sebastiano about Crow's sunken ship; accept his order to question its surviving cook Hawkins.",
+            summary = "Question imprisoned cook Hawkins about Crow's ship and report what you learn to Sebastiano.",
+            walkthroughSteps = listOf("At the upper Puerto Isabella villa, talk to Sebastiano about Crow. He sends you to question Hawkins, the ship's only known survivor.", "Visit the nearby stone prison tower. Talk to Hawkins; when he asks for help escaping in exchange for information, agree to Free Hawkins! if you want to pursue his companion quest.", "Ask Hawkins all available questions about Crow's ship, then return to Sebastiano and report his answers."),
+            reward = "50 Glory",
+            warnings = "This quest can start the Free Hawkins! escape, which is a separate journal objective.",
+            searchTags = listOf("Interrogate Hawkins", "Sebastiano", "Sword Coast", "Risen 2"),
+        ),
+        Quest(
+            id = "R2-C2-094",
+            chapter = 2,
+            playOrder = 94,
+            title = "The Warriors in Front of the Temple!",
+            category = "SWORD COAST — JOURNAL QUEST",
+            giver = "Automatic combat objective",
+            location = "Sword Coast — Earth Temple exterior",
+            prerequisites = "Approach the Earth Temple on the Sword Coast while pursuing The Lookout's Report, Forward March! or Chani's Plan.",
+            summary = "Defeat the eight spear-wielding warriors guarding the Earth Temple approaches.",
+            walkthroughSteps = listOf("Follow the jungle route to the Earth Temple with Venturo, the Inquisition musketeers or Chani as support, or arrive independently.", "Fight the group of eight hostile warriors outside the temple. Avoid their spear volleys, separate the group, and let allies draw aggro if needed.", "Kill all eight to complete the journal combat objective, then continue Assault on the Temple when the route is ready."),
+            reward = "100 Glory for quest completion; 60 Glory for each warrior personally killed",
+            warnings = "The personal kill Glory and quest completion Glory are separate rewards. Bringing companions makes the fight safer.",
+            searchTags = listOf("The Warriors in Front of the Temple!", "Automatic combat objective", "Sword Coast", "Risen 2"),
+        ),
+        Quest(
+            id = "R2-C2-095",
+            chapter = 2,
+            playOrder = 95,
+            title = "Back to the Village with Hikoko",
+            category = "SWORD COAST — JOURNAL QUEST",
+            giver = "Hikoko",
+            location = "Sword Coast — jade cave to Shaganumbi village",
+            prerequisites = "Complete The Jade Cave, collect four Pieces of Jade and speak to Hikoko outside the cave. Choose her optional offer to travel home together.",
+            summary = "Escort Hikoko safely back to Shaganumbi after obtaining jade.",
+            walkthroughSteps = listOf("After you leave the jade cave with the four pieces, talk to Hikoko and accept the offer to return together rather than departing alone.", "Follow Hikoko along the cleared jungle route back toward the Shaganumbi village. Do not use fast travel, since that can leave her behind.", "Reach the village alongside Hikoko to complete the escort, then give Kapua the jade to resolve the parent Jade quest."),
+            reward = "10 Glory",
+            warnings = "Optional: returning alone skips this quest. Fast travel can strand Hikoko and prevent normal completion until you rejoin her.",
+            searchTags = listOf("Back to the Village with Hikoko", "Hikoko", "Sword Coast", "Risen 2"),
+        ),
+        Quest(
+            id = "R2-C2-096",
+            chapter = 2,
+            playOrder = 96,
+            title = "Through the Rat Cave",
+            category = "SWORD COAST — JOURNAL QUEST",
+            giver = "Steelbeard (route choice)",
+            location = "Sword Coast — cavern on Puerto Isabella approach",
+            prerequisites = "Start Crow's Ship with Steelbeard and Patty, pass the bridge on the Puerto Isabella route and reach the crossroads during Farther South.",
+            summary = "Choose the cave route to Puerto Isabella and follow Steelbeard until his next decision.",
+            walkthroughSteps = listOf("At the fork on the road during Farther South, choose to explore the rat cave instead of taking the coastal road.", "Follow Steelbeard through the cave until he grows uneasy and asks whether you truly want to continue.", "Agree to push deeper to begin A Terrible Feeling, or return to the crossroads to trigger Back to the Beginning. The cave-stage quest ends on this conversation."),
+            reward = "10 Glory",
+            warnings = "The cave/coast routes are alternatives. Returning to the fork skips the deeper cave encounters, but the main Crow's Ship quest can progress via the coast.",
+            searchTags = listOf("Through the Rat Cave", "Steelbeard (route choice)", "Sword Coast", "Risen 2"),
+        )
+    )
+}

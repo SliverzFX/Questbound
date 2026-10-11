@@ -94,7 +94,8 @@ class TopLevelSectionsTest {
         composeRule.onNodeWithTag("code_category_list").performScrollToNode(hasTestTag("code_category_weapons"))
         composeRule.onNodeWithTag("code_category_weapons").performClick()
         composeRule.onNodeWithTag("gothic_reference_god").assertDoesNotExist()
-        composeRule.onNodeWithText("No matching entries. Try another search.").assertExists()
+        // "god" also matches the weapon named God\'s Hammer, so the result is not empty.
+        composeRule.onNodeWithTag("gothic_reference_g1_itmw_1h_warhammer_03").assertExists()
         composeRule.onNodeWithTag("code_category_list").performScrollToNode(hasTestTag("code_category_all"))
         composeRule.onNodeWithTag("code_category_all").performClick()
         composeRule.onNodeWithTag("gothic_reference_god").assertExists()
@@ -137,7 +138,8 @@ class TopLevelSectionsTest {
         composeRule.onNodeWithText("DONATIONS").performClick()
         composeRule.onNodeWithTag("donations_screen").assertExists()
         composeRule.onNodeWithText("Support Questbound").assertExists()
-        composeRule.onNodeWithText("@mihag25").assertExists()
+        // Wise is represented by a support button, not a visible account handle.
+        composeRule.onNodeWithTag("donations_kofi").performScrollTo().assertExists()
         composeRule.onNodeWithTag("donations_wise").performScrollTo().assertExists()
         composeRule.onNodeWithTag("donations_home").performClick()
         composeRule.onNodeWithTag("home_screen").assertExists()

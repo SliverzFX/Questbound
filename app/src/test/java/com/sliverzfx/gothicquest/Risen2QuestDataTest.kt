@@ -215,4 +215,19 @@ class Risen2QuestDataTest {
         assertEquals("A Terrible Feeling", Risen2QuestData.quests.single { it.id == "R2-C2-095" }.title)
     }
 
+    @Test fun auditedEarlyGloryAndEnemyRewardsStayPrecise() {
+        val byId = Risen2QuestData.quests.associateBy { it.id }
+        assertEquals("50 Glory", byId.getValue("R2-C1-016").reward)
+        assertTrue(byId.getValue("R2-C1-018").reward.startsWith("200 Glory"))
+        assertTrue(byId.getValue("R2-C1-027").reward.contains("150 Gold"))
+        assertTrue(byId.getValue("R2-C1-036").reward.contains("1,000 Gold"))
+        assertEquals("Talk to the Pirates at the Tower", byId.getValue("R2-C2-002").title)
+        assertEquals("No separate Glory or item reward", byId.getValue("R2-C2-002").reward)
+        assertTrue(byId.getValue("R2-C2-003").reward.startsWith("100 Glory"))
+        assertEquals("50 Glory", byId.getValue("R2-C2-008").reward)
+        assertTrue(byId.getValue("R2-C2-009").reward.contains("75 Glory"))
+        assertEquals("10 Glory", byId.getValue("R2-C2-026").reward)
+        assertTrue(byId.getValue("R2-C2-034").giver.startsWith("Automatic"))
+    }
+
 }

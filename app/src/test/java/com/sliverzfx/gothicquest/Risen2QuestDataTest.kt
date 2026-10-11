@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 164, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 96, 164, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(307, quests.size)
-        assertEquals(307, quests.map { it.id }.toSet().size)
-        assertEquals(307, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(311, quests.size)
+        assertEquals(311, quests.map { it.id }.toSet().size)
+        assertEquals(311, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -184,6 +184,19 @@ class Risen2QuestDataTest {
         assertTrue(byTitle.getValue("Where Is Rick?").prerequisites.contains("Where Is My Ship?"))
         assertTrue(byTitle.getValue("Gibson's Grave").reward.contains("Silver Mask"))
         assertEquals("100 Glory", byTitle.getValue("The Treasure in the Grotto on Antigua").reward.substringBefore(";"))
+    }
+
+    @Test fun swordCoastRestoredJournalAndRenamedQuestsKeepOriginalProgressKeys() {
+        val added = Risen2GuidePart17Data.quests
+        assertEquals(4, added.size)
+        assertEquals((93..96).toList(), added.map { it.playOrder })
+        assertTrue(added.all { it.chapter == 2 && it.walkthroughSteps.size == 3 })
+        assertEquals("50 Glory", added.single { it.title == "Interrogate Hawkins" }.reward)
+        assertEquals("10 Glory", added.single { it.title == "Back to the Village with Hikoko" }.reward)
+        val byId = Risen2QuestData.quests.associateBy { it.id }
+        assertEquals("The Jade Cave", byId.getValue("R2-C2-047").title)
+        assertEquals("Eusebio's Debts", byId.getValue("R2-C2-061").title)
+        assertTrue(byId.getValue("R2-C2-061").reward.contains("50 Glory"))
     }
 
 }

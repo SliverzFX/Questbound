@@ -64,3 +64,49 @@ The original 204 IDs and their playOrder values remain unchanged. **207 unique q
 - [The Treasure on Fortress Beach](https://www.gamepressure.com/risen2/the-treasure-on-fortress-beach/z43a79)
 
 **Status:** First substantive Risen 2 correction pass done; coverage reconciliation and Chapters 2–4 verification are still outstanding.
+
+
+## Consolidated prerequisite and Sword Coast expansion — 11 October 2026
+
+This section **supersedes** the initial inventory and open prerequisite count above.
+
+- Completed all **158 previously blank prerequisite fields** across Parts 3–8: **35 Sword Coast opening**, **44 Sword Coast faction/ship**, **31 Antigua**, **25 Isle of Thieves**, **19 Isle of the Dead/Garcia**, and **4 Water Temple**. Parts 1–2 were reconciled previously.
+- Existing 204 IDs remain intact, and the first three missing quests in Part 9 remain intact.
+- New `Risen2GuidePart10Data.kt`: **12** further source-verified standalone Sword Coast entries, appended as `R2-C2-081` to `R2-C2-092`. These include Basil's Chest, Blades for Cooper, Dance with Tito, Firebird Hunt, Firebirds Blocking the Bridge, Hidden Lookouts, Jim's Treasure Map, Jim's Treasure, Monkey Business and three Sword Coast buried treasure quests.
+- The `Risen2-C2-010` *Suspicious Tonka* entry now names **Nakutu**; this only appears with Chani on the Native route. `R2-C2-011` *Four Offerings for Kanadiktu* correctly names **Badriya** and specifies Chani, Nakutu, Ranapiri and Samir. The guide authors disagree whether the gold reward is 100 or 300, so the text preserves uncertainty.
+- The three new treasure guides distinguish collection rewards from combat Glory; *The Treasure on Puerto Isabella Beach* explicitly has **no Glory reward**, although the chest contains gold and valuables.
+
+### Current source integrity
+
+| Chapter in Questbound | Entries |
+| --- | ---: |
+| 1 — Caldera/Tacarigua | 47 |
+| 2 — Sword Coast and new side quests | 92 |
+| 3 — Antigua, Isle of Thieves, Caldera II, Maracai, Isle of the Dead | 76 |
+| 4 — Final Water Temple | 4 |
+| **Total** | **219** |
+
+A direct source-level scan of Parts 1–10 found **0 duplicate IDs, 0 duplicate titles**, and **0 blank giver, prerequisite, reward or summary fields**. Chapter ordering remained consecutive, and no original quest ID was renumbered. New unit tests assert 219 entries, faction-exclusive prerequisites and the 12 new quests.
+
+### Still open — genuine content quality work
+
+- **Original-game coverage remains incomplete.** The Gamepressure 2012 quest index has many more standalone objectives than the current 219 entries, particularly Maracai Bay, Caldera II, and Isle of the Dead, plus Sword Coast escort microquests. Add only named, source-confirmed journal quests with useful steps and faction gates.
+- **34 entries** still have reward descriptions without a definite numeric Glory payout (including some genuine story quests without a standalone payout). This is **not** equivalent to 34 missing rewards; investigate them individually, and preserve uncertainty rather than inventing values.
+- Some early broad location/route summaries need further journal-vs-reference classification, despite all fields being populated.
+- Latest *this-commit* Android build and JVM tests are pending. An earlier 11 October workflow passed its build job but its emulator UI suite failed in multiple general navigation tests. These failures are not evidence that the Risen 2 metadata is incorrect, but they must be resolved before full Android release sign-off.
+
+### Verifiable sources used for this pass
+
+- [GameFAQs Risen 2 original walkthrough (quest chains and mutually exclusive paths)](https://gamefaqs.gamespot.com/pc/622499-risen-2-dark-waters/faqs/64985)
+- [Gamepressure — full Risen 2 original-game quest index](https://www.gamepressure.com/risen2/)
+- [Gamepressure — The Suspicious Tonka](https://www.gamepressure.com/risen2/the-suspicious-tonka/zd3a27)
+- [Gamepressure — Four Offerings for Kanadiktu](https://www.gamepressure.com/risen2/four-offerings-for-kanadiktu/ze3a28)
+- [Gamepressure — Blades for Cooper](https://www.gamepressure.com/risen2/blades-for-cooper/z539de)
+- [Gamepressure — Firebird Hunt](https://www.gamepressure.com/risen2/firebird-hunt/z2390f)
+- [Gamepressure — Hidden Lookouts](https://www.gamepressure.com/risen2/hidden-lookouts/z2391e)
+- [Gamepressure — Jim's Treasure](https://www.gamepressure.com/risen2/jims-treasure/z53918)
+- [Gamepressure — The Treasure on Puerto Isabella Beach](https://www.gamepressure.com/risen2/the-treasure-on-puerto-isabella-beach/z63919)
+- [Gamepressure — The Treasure in the Natives' Graveyard](https://www.gamepressure.com/risen2/the-treasure-in-the-natives-graveyard/z339e2)
+- [Gamepressure — The Treasure in the Valley of the Jaguar](https://www.gamepressure.com/risen2/the-treasure-in-the-valley-of-the-jaguar/ze391a)
+
+**Status: Risen 2 prerequisite reconciliation is complete; total-quest coverage, item/reward accuracy, and final release verification remain underway.**

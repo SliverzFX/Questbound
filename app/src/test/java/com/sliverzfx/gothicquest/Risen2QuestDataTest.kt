@@ -5,11 +5,11 @@ import org.junit.Test
 
 class Risen2QuestDataTest {
     @Test fun chapterOrderCountsAndUniqueProgressRecords() {
-        assertEquals(listOf(47, 92, 89, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
+        assertEquals(listOf(47, 92, 110, 4), (1..4).map { GameId.RISEN_2.chapterQuests(it).size })
         val quests = GameId.RISEN_2.quests()
-        assertEquals(232, quests.size)
-        assertEquals(232, quests.map { it.id }.toSet().size)
-        assertEquals(232, quests.map { it.title.lowercase() }.toSet().size)
+        assertEquals(253, quests.size)
+        assertEquals(253, quests.map { it.id }.toSet().size)
+        assertEquals(253, quests.map { it.title.lowercase() }.toSet().size)
         (1..4).forEach { chapter ->
             val entries = GameId.RISEN_2.chapterQuests(chapter)
             assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
@@ -102,6 +102,23 @@ class Risen2QuestDataTest {
         val main = Risen2QuestData.quests.associateBy { it.id }
         assertTrue(main.getValue("R2-C3-058").summary.contains("five Black Lotus"))
         assertTrue(main.getValue("R2-C3-059").summary.contains("Nahele"))
+    }
+
+    @Test fun maracaiBayJournalExpansionHasDistinctObjectivesAndConsequences() {
+        val entries = Risen2GuidePart12Data.quests
+        assertEquals(21, entries.size)
+        assertEquals((90..110).toList(), entries.map { it.playOrder })
+        assertEquals(21, entries.map { it.id }.toSet().size)
+        assertTrue(entries.all { it.chapter == 3 && it.walkthroughSteps.size == 3 })
+        assertTrue(entries.all { it.giver.isNotBlank() && it.prerequisites.isNotBlank() && it.reward.isNotBlank() })
+        val byTitle = entries.associateBy { it.title }
+        assertEquals("Corrientes", byTitle.getValue("The Deserter").giver)
+        assertEquals("Valdez", byTitle.getValue("The Expedition").giver)
+        assertEquals("Mercutio", byTitle.getValue("Storage Barrels from the Wreck").giver)
+        assertTrue(byTitle.getValue("Angus Rescued").warnings.contains("Garcia"))
+        assertTrue(byTitle.getValue("Angus is Dead").warnings.contains("Angus Rescued"))
+        assertTrue(byTitle.getValue("The Naked Corpses").prerequisites.contains("Garcia"))
+        assertTrue(byTitle.getValue("Unwanted Sermon").summary.contains("Bones"))
     }
 
 }

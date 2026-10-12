@@ -40,4 +40,41 @@ class Risen3QuestDataTest {
         assertEquals(AppRoute.QuestDetail(GameId.RISEN_3, finalQuest.id),
             routeFromResume("Risen 3", 4, finalQuest.id))
     }
+    @Test
+    fun tacariguaFogAndThievesQuestsHaveSourceCheckedWalkthroughs() {
+        val section = Risen3QuestData.chapter(2).filter { it.playOrder in 98..137 }
+        assertEquals(40, section.size)
+        assertEquals((98..137).toList(), section.map { it.playOrder })
+        assertTrue(section.all { it.giver.isNotBlank() })
+        assertTrue(section.all { it.prerequisites.isNotBlank() })
+        assertTrue(section.all { it.reward.isNotBlank() })
+        assertTrue(section.all { it.walkthroughSteps.size >= 3 })
+        assertTrue(section.all { it.summary.isNotBlank() })
+        assertEquals(40, section.map { it.id }.toSet().size)
+
+        val byId = section.associateBy { it.id }
+        assertEquals("Rodriguez", byId.getValue("R3-C2-108").giver)
+        assertEquals("200 Glory and 100 Gold", byId.getValue("R3-C2-108").reward)
+        assertEquals("100 Glory", byId.getValue("R3-C2-107").reward)
+        assertEquals("220 Glory", byId.getValue("R3-C2-115").reward)
+        assertTrue(byId.getValue("R3-C2-109").warnings.contains("Vasco"))
+        assertTrue(byId.getValue("R3-C2-110").warnings.contains("Horas"))
+        assertTrue(byId.getValue("R3-C2-128").warnings.contains("Do not kill"))
+        assertEquals("850 Glory and 300 Gold", byId.getValue("R3-C2-122").reward)
+        assertEquals("Trawi", byId.getValue("R3-C2-136").giver)
+        assertEquals("Malik", byId.getValue("R3-C2-134").giver)
+    }
+
+    @Test
+    fun risenThreeOriginalChapterTotalsAndSavedProgressKeysRemainStable() {
+        assertEquals(172, Risen3QuestData.quests.size)
+        assertEquals(172, Risen3QuestData.quests.map { it.id }.toSet().size)
+        assertEquals(
+            listOf(10, 140, 11, 11),
+            (1..4).map { Risen3QuestData.chapter(it).size }
+        )
+        assertEquals("R3-C2-098", Risen3QuestData.chapter(2)[97].id)
+        assertEquals("R3-C2-137", Risen3QuestData.chapter(2)[136].id)
+    }
+
 }

@@ -104,3 +104,18 @@ Eleven additional Chapter 2 entries (`R3-C2-001`–`R3-C2-011`) now contain expl
 **Current source-field tally:** 86 blank prerequisite fields remain (97 minus 11); 17 blank givers and 17 blank rewards remain. The catalog still has 172 entries. This does *not* constitute coverage certification or an Android build pass.
 
 Cross-checks: https://www.gamepressure.com/risen3/lets-get-out-of-here/z26660 ; https://www.gamepressure.com/risen3/bring-ramon-into-the-harbour-town/z067ba ; https://www.gamepressure.com/risen3/find-the-demon-hunter-on-antigua/z167bb .
+
+## Continuing audit — Chapter 2 prerequisite navigation, 12 October 2026
+
+A further **71 Chapter 2 prerequisite fields** were populated without changing IDs, titles, chapter assignments or playOrder: 24 in `Risen3Chapter2Part1Data.kt` (012–035), 35 in `Risen3Chapter2Part2Data.kt` (036–070), and 12 in `Risen3Chapter2Part3Data.kt` (071, 072, 074, 075, 077, 078, 087, 088, 091–093, 097). Along with the preceding eleven (001–011), this reduces the prior **86 blanks to 15**. Existing **17 blank givers and 17 blank rewards** remain. Total records: **172**.
+
+These additions clarify navigation/trigger conditions from the already-imported quest narratives, plus cross-island and mutually exclusive faction requirements. **They are not all independently source-verified**: an explicitly cautious trigger is preferable to invented precision, but ambiguous entries (especially generic Calador/Taranis workers and late-rank entries) still need line-by-line source checking and fuller walkthroughs. The preliminary coverage comparison already identifies source-index titles absent from the inherited Calador catalog (e.g. `Capt'n Finch's Treasure`, `A Big Haul`, `Ernesto's Engraved Candle Holder`, `Cold Nights`, `Liquid Gold`, `Awesome Deal`, `Dangerous Liaison` and `John's Treasure`). Do not treat the 172 current records as exhaustive.
+
+Sources used to check chapter indexing and quest chains:
+- https://www.gamepressure.com/risen3/side-quests-calador/z7666e
+- https://www.gamepressure.com/risen3/map-side-quests-calador/z8666f
+- https://www.gamepressure.com/risen3/side-quests-antigua/z767b8
+- https://www.gamepressure.com/risen3/map-side-quests-kila/z466c5
+- https://www.gamepressure.com/risen3/shattered-inheritance/z467be
+
+**Validation pending:** latest Android compilation, JVM tests and emulator/UI testing; no green checks claimed.

@@ -83,3 +83,16 @@ All 172 quest IDs are distinct; no duplicate English titles were found in the in
 6. Check CI and compile on Android after source updates, then do an app usability pass (readability of lengthy walkthroughs, tablet layouts, route-specific completion).
 
 **Status: Risen 3 audit ACTIVE, 40 existing quests polished and 132 other existing entries still require cross-check or coverage work.**
+
+
+## Further milestone — prologue and post-faction prerequisites, 12 October 2026
+
+**32 more records** now have useful trigger prerequisites, without altering their titles, IDs or playOrder:
+
+- All **10 Chapter 1** records: Patty's shipboard vision and Crab Coast temple; Dragon Snapper, Hellhound, lever, magic scroll and Parrot Flight subquests; the post-death Bones revival.
+- All **11 Chapter 3** records: Eldric's eastern-Calador entry, Ancient Spell, recruiting Zacharias/Chani, Kila's Large Gate and Forbidden Valley, Oracle challenges, ritual location and final Spirit Ritual. Most demand a permanent faction decision or prerequisites from the other islands.
+- All **11 Chapter 4** records: Bones's traitor revelation, Alvarez's multi-faction ship alliance, Crow, Skull Island's camp missions, recruiting the rescued mages and the Nekroloth finale.
+
+New source-level remaining blanks: **17 givers, 97 prerequisites and 17 rewards**, all concentrated in the Chapter 2 Calador/Kila/Taranis imports except a single Chapter 3 giver/reward. The **40-record Tacarigua/Fog Island/Isle of Thieves batch is fully populated**. Total count remains **172**, with all saved-progress IDs unchanged. Regression tests now check all late-chapter prerequisites and the original four-chapter counts.
+
+**Release status:** current Android build, JVM unit test and emulator instrumentation must be verified on the latest commit; no green result has been asserted for this follow-up. The original game's wider quest-title coverage remains a separate incomplete task.

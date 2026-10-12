@@ -77,4 +77,17 @@ class Risen3QuestDataTest {
         assertEquals("R3-C2-137", Risen3QuestData.chapter(2)[136].id)
     }
 
+    @Test
+    fun risenThreePrologueAndLateStoryQuestsHaveNavigableTriggers() {
+        for (chapter in listOf(1, 3, 4)) {
+            val entries = Risen3QuestData.chapter(chapter)
+            assertTrue("Empty prerequisite in chapter $chapter", entries.all { it.prerequisites.isNotBlank() })
+        }
+        val byId = Risen3QuestData.quests.associateBy { it.id }
+        assertTrue(byId.getValue("R3-C3-011").prerequisites.contains("Recruit Zacharias"))
+        assertTrue(byId.getValue("R3-C4-001").prerequisites.contains("Spirit Ritual"))
+        assertTrue(byId.getValue("R3-C4-011").prerequisites.contains("Reunion"))
+        assertTrue(byId.getValue("R3-C1-009").prerequisites.contains("Parrot Flight"))
+    }
+
 }

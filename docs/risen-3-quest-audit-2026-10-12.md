@@ -143,3 +143,11 @@ Added three independently verified original-game quest entries after the existin
 - `R3-C2-143` Cold Nights: Mira's mutually exclusive branch following Ernesto's stolen candle holder. https://www.gamepressure.com/risen3/cold-nights/z56681
 
 **New cardinality:** 175 original records (10 / 143 / 11 / 11). JVM expectations adjusted. **Still not complete:** source-index comparison finds other missing standalone quests (notably Ernesto's Engraved Candle Holder, A Big Haul, and multiple Taranis/Kila quests) and placeholder walkthroughs; other fields remain unverified. CI was in progress at commit `6edc8d1` when last checked; no successful Android or unit-test result should be asserted yet.
+
+## Further recovery — Calador entries (12 October 2026)
+
+Added `R3-C2-144` Awesome Deal (Bran, 100 Glory and 20 Provisions if purchased; Intimidate 60 can lower cost) and `R3-C2-145` Ernesto's Engraved Candle Holder (Nikodim, farm theft resolution, alternate truth/Mira route, Gold Liquor recipe) while preserving prior IDs. Sources:
+- https://www.gamepressure.com/risen3/awesome-deal/z96685
+- https://www.gamepressure.com/risen3/ernestos-engraved-candle-holder/z46680
+
+**Catalog now 177 entries** (10 / 145 / 11 / 11); source-level expectation assertions changed. The imported catalog is **still incomplete** relative to the external guide's many Kila/Taranis/Calador journal quests, and some inherited quest details remain generic or unverified. Do not mark audit complete on field population alone. GitHub Actions for the newest commits was queued/in-progress when checked; no successful build or test validation was observed.

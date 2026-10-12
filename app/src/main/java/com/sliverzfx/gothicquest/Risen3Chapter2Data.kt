@@ -54,6 +54,26 @@ internal object Risen3Chapter2Data {
             reward = "100 Glory",
             warnings = "Mutually exclusive with the truthful Nikodim resolution; do not require this quest in a single-playthrough completion route that chooses honesty.",
             searchTags = listOf("Calador", "Source-verified missing quest"),
+        ),
+        Quest(
+            id = "R3-C2-144", chapter = 2, playOrder = 144,
+            title = "Awesome Deal", aliases = listOf(),
+            category = "SIDE QUEST — VERIFIED MISSING ENTRY", giver = "Bran",
+            location = "Calador", prerequisites = "Speak with Bran at the farm north of Calador's fishing village.",
+            summary = "Choose whether to buy Bran's 20 provisions after he unexpectedly raises the price.",
+            walkthroughSteps = listOf("Find Bran on the farm north of the fishing village.", "Ask to buy his provisions; the price rises from 250 to 400 Gold.", "Pay 400 Gold, or use Intimidate 60 to reduce the price to 300 Gold.", "Accept the trade and collect 20 Provisions."),
+            reward = "100 Glory and 20 Provisions if the deal is accepted.", warnings = "Declining on the first encounter can permanently remove the purchase opportunity.",
+            searchTags = listOf("Calador", "Source-verified missing quest"),
+        ),
+        Quest(
+            id = "R3-C2-145", chapter = 2, playOrder = 145,
+            title = "Ernesto's Engraved Candle Holder", aliases = listOf(),
+            category = "SIDE QUEST — VERIFIED MISSING ENTRY", giver = "Nikodim",
+            location = "Calador", prerequisites = "Speak with Nikodim near Ernesto's farm mill on Calador.",
+            summary = "Recover the missing candle holder and choose between clearing Nikodim or falsely blaming him.",
+            walkthroughSteps = listOf("Find Nikodim near the mill at Ernesto's farm and ask about the theft.", "Investigate the wagon and follow the clues into the goblin-infested area; retrieve the engraved candle holder.", "Return to Ernesto with the item and decide whom to blame.", "Tell the truth about the goblins to clear Nikodim, or lie to favor Mira and unlock Cold Nights."),
+            reward = "400 Glory and the Gold Liquor recipe; gold reward varies with dialogue.", warnings = "Mira's branch can lead to Cold Nights; telling the truth can remove her training services. Save before the final accusation.",
+            searchTags = listOf("Calador", "Source-verified missing quest"),
         )
         ))
     }

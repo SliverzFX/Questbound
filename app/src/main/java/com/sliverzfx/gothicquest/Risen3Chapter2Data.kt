@@ -74,6 +74,42 @@ internal object Risen3Chapter2Data {
             walkthroughSteps = listOf("Find Nikodim near the mill at Ernesto's farm and ask about the theft.", "Investigate the wagon and follow the clues into the goblin-infested area; retrieve the engraved candle holder.", "Return to Ernesto with the item and decide whom to blame.", "Tell the truth about the goblins to clear Nikodim, or lie to favor Mira and unlock Cold Nights."),
             reward = "400 Glory and the Gold Liquor recipe; gold reward varies with dialogue.", warnings = "Mira's branch can lead to Cold Nights; telling the truth can remove her training services. Save before the final accusation.",
             searchTags = listOf("Calador", "Source-verified missing quest"),
+        ),
+        Quest(
+            id = "R3-C2-146", chapter = 2, playOrder = 146, title = "One Made It",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Kjeld", location = "Taranis",
+            prerequisites = "Speak with Kjeld near the Mages Camp tavern.", summary = "Discover the fate of Kjeld's companions Lina and Tokel.",
+            walkthroughSteps = listOf("Find Kjeld by the Mages Camp tavern and agree to investigate the attack.", "Go southwest to the lakeside hut; kill the skeletons and minions and examine Lina's body.", "Swim to the island in the lake, speak to Tokel, and escort him back safely past the Water Lizards.", "Tell Kjeld that Lina died and Tokel survived. Tokel can then help with The Cleaner."),
+            reward = "200 Glory and 300 Gold, plus intermediate Glory from discovering Lina and escorting Tokel.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-147", chapter = 2, playOrder = 147, title = "The Lost Treasure",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Kamil", location = "Kila",
+            prerequisites = "Join the Natives on Kila and talk to Kamil, who guards the bridge to the Natives Village.", summary = "Recover the stolen Precious Idol and choose between returning it to Kamil or selling it to Buddy.",
+            walkthroughSteps = listOf("Meet Kamil after joining the Natives; Silver Tongue 30 can earn an additional Sapphire.", "On the pirate beach question Harry, Colby and Cunningham, then tell Buddy what you learned.", "Bring a shovel; from Asali's watering hole follow the southern trail southeast then northeast, watching for a rope trap.", "Dig at the red X on the hill and recover the Precious Idol, an Old Letter and 150 Gold.", "Give the Idol to Kamil for the Rebound spell, or sell it to Buddy for 1000 Gold."),
+            reward = "200 Glory; Rebound spell from Kamil OR 1000 Gold from Buddy.", warnings = "Native-faction quest with mutually exclusive final rewards.",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-148", chapter = 2, playOrder = 148, title = "The Treasure in the Woods of Taranis",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Automatic: Treasure Map", location = "Taranis",
+            prerequisites = "Pick up the Treasure Map on a wooden bench in front of a warehouse in eastern Taranis harbour.", summary = "Dig up treasure in the southern Taranis jungle.",
+            walkthroughSteps = listOf("Collect the Treasure Map from the harbour warehouse bench.", "Bring a shovel and head into the jungle in southern Taranis.", "Avoid or defeat the large Grave Spider near the red X.", "Dig up the chest and collect 90 Gold, a Diamond and the Ring of Magic schematic."),
+            reward = "100 Glory; 90 Gold, Diamond and Ring of Magic schematic in the chest.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-149", chapter = 2, playOrder = 149, title = "The Treasure in the Deadlands of Taranis",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Automatic: Treasure Map", location = "Taranis",
+            prerequisites = "Find the Treasure Map pinned inside the lakeside hut visited in Kjeld's One Made It quest.", summary = "Locate the buried treasure near the southwestern Shadow Lord territory.",
+            walkthroughSteps = listOf("While investigating Lina's hut during One Made It, take the Treasure Map from the wall.", "Bring a shovel and travel southwest into the Taranis Deadlands.", "Clear or avoid enemies around the Shadow Lord's lair; defeating the Shadow Lord is not necessary for this treasure.", "Find the red X and dig up 50 Gold, Gold Ore, Golden Goblet and Emerald."),
+            reward = "100 Glory; 50 Gold, Gold Ore, Golden Goblet and Emerald in the chest.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
         )
         ))
     }

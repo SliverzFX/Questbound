@@ -1,0 +1,85 @@
+# Questbound — Risen 3: Titan Lords quest audit
+
+**Started:** 12 October 2026  
+**Repository:** `SliverzFX/Questbound` — `dev/android-foundation-v0.1`  
+**Scope:** Original Risen 3 game quest walkthrough data; distinguish additional-content/DLC quests, faction alternatives and general story-chain summaries.
+
+## Starting point
+
+The inherited Risen 3 guide consisted of **172 existing records** in four Questbound story sections: **10 / 140 / 11 / 11**. These are *app navigation chapters*, not a one-to-one list of the game's distinct journal missions.
+
+Compared with the original 2014–2016 Gamepressure Risen 3 walkthrough index, the guide has **significant incomplete coverage and many blank metadata fields**. It cannot be called finished on the basis of 172 titles. Original-game source index: https://www.gamepressure.com/risen3/game-guide/z58d5d
+
+## Completed first source-reconciliation pass
+
+Updated **40 existing Chapter 2 records** with stable original IDs `R3-C2-098`–`R3-C2-137`. No ID, chapter or playOrder was changed. All 40 now have named or explicitly automatic givers, specific trigger prerequisites, actionable walkthrough steps, a nonblank reward statement and important warning text where relevant.
+
+### Tacarigua (22 records: 098–117 plus 2 original-chain entries)
+
+- **Jack and Inquisition:** News from Puerto Sacarico (Jack), Kicking Ass (Jack / Holtby's stolen goods), Wet Behind the Ears (Pipkin's stash). Both cave quests are safely combined in one visit; the Cruel Lindworm has its own **600 Glory** combat award.
+- **Deserters:** Vasco's Stuff (Vasco), Menacing Shadows (Severin; **ten** Menacing Minions), and Death to the Deserters (Sebastiano). **Complete Vasco's and Severin's jobs before killing either deserter.** They may both be spared, and Sebastiano can be given a false report.
+- **Governor's murder:** Di Fuego's Corpse: examine the body and blade, steal Sebastiano's Execution Order, question a Nightwatch soldier and confront Sebastiano. An antagonistic reaction can cancel the deserters' task.
+- **Horas:** Betray Horas is **optional**; protecting Horas may cancel this quest, whereas betraying him yields **100 Glory / 300 Gold** but harms Soul and can disrupt later dialogue.
+- **Osorio:** Off and Away follows Hawke, requires liana climbing (or Parrot form for the purse), and pays **200 Glory / 200 Gold** after returning the purse.
+- **Rosco:** Unfathomable Riches (**20 Glory**) → A Stately Chest (**300 Glory**, Rusty Fork) → Parting of Ways (**300 Glory**, Hand Mirror) → Close Enough to Touch (**220 Glory**) → The Biggest Treasure (Ramirez's mutually exclusive answer/reward choices).
+- **Other:** Commandant Roquefort's three entry options, Rodriguez's stolen Redeployment Order (**200 Glory / 100 Gold**), lighthouse and mountain treasure maps, Shadow Lord of Madness (**600 Glory / Raw Black Heart**).
+
+### Fog Island (9 records: 118–126)
+
+- Nebulous Suggestions begins in **Bones's dialogue** and pays **100 Glory**.
+- Venturo's expedition kills **Rakazor**, finds Rodrigo, then leads to Carlos's hilltop camp.
+- Carlos's Paths to the Afterlife involves **five Soul Eaters** including disguised **Raxkarok (Suspicious Duck)** and **Xora Rul (Circe)**. Doing Circe's evil bidding can kill Diaz/Hector and leave the player vulnerable; take Hector's Braggart arm-wrestling first.
+- Venturo's Scattered Soldiers mission reports on Fletcher/Hull, Diaz/Hector, Domingo/Gonzales and Nathan; **850 Glory / 300 Gold**.
+- Balthazar's United in the Afterlife requires Weathered Bottle Message, Weathered Records, Protector's Notes, Calypso's Skull and the removal of the five Soul Eaters; reward choices differ in Soul, potion and gold.
+- Mortimer's escort and treasure are distinct objectives. **200 Glory** for escort, **200 Glory** for treasure, chest with 500 Gold. Killing Mortimer to reveal the map loses the peaceful rewards.
+
+### Isle of Thieves (11 records: 127–137)
+
+- **Critical progression rule:** In Kaan's Goblin Invasion, collect **four Auri Culci from goblin encampments without killing goblins first**. Only AFTER the nonlethal return can you pursue Ulvi's northern scouts, 14 camp goblins and the Goblin King. The main chain is a multistage quest, so rewards can be cumulative and should not be counted as a simple single-payout statement.
+- Akila's Lucky Coin offers four recovery methods, then a **Pearls / Gold Ore / Crown** choice.
+- Malik's missing hammer is in a nearby crate (**40 Glory, 5 Gold, Raw Chicken Drumstick**). His separate Escaped quest rescues Dowi from Russel's slavers.
+- Zeki's Graveyard Gardener clears six goblins in a tomb; gold/pot/both choices change Soul.
+- Trawi's Gnome Riddle correct answers: **He's with the mother; On Calador; White**.
+- Gabu's Gnome Eater refers to a *Risen 3* Leviathan, not the analogous **Risen 2** quest with a different giver and payout.
+
+Principal per-quest sources:
+- https://www.gamepressure.com/risen3/side-quests-tacarigua/zd6779
+- https://www.gamepressure.com/risen3/death-to-the-deserters/za6785
+- https://www.gamepressure.com/risen3/di-fuegos-corpse/z56780
+- https://www.gamepressure.com/risen3/parting-of-ways/z6678a
+- https://www.gamepressure.com/risen3/close-enough-to-touch/z7678b
+- https://www.gamepressure.com/risen3/paths-to-the-afterlife/za66e9
+- https://www.gamepressure.com/risen3/the-scattered-soldiers/zc66ea
+- https://www.gamepressure.com/risen3/united-in-the-afterlife/z366eb
+- https://www.gamepressure.com/risen3/goblin-invasion/z86765
+- https://www.gamepressure.com/risen3/the-lucky-coin/zc6769
+- https://www.gamepressure.com/risen3/gnome-riddle/z7676d
+- https://www.gamepressure.com/risen3/the-gnome-eater/z8676e
+
+## Source-level checks after first pass
+
+| Kotlin quest-data source | Existing entries | Blank giver | Blank prerequisites | Blank reward |
+| --- | ---: | ---: | ---: | ---: |
+| Risen3Chapter1Data.kt | 10 | 0 | 10 | 0 |
+| Risen3Chapter2Part1Data.kt | 35 | 2 | 35 | 2 |
+| Risen3Chapter2Part2Data.kt | 35 | 7 | 35 | 7 |
+| Risen3Chapter2Part3Data.kt | 35 | 7 | 27 | 7 |
+| Risen3Chapter2Part4Data.kt | 35 | 0 | 0 | 0 |
+| Risen3Chapter3Data.kt | 11 | 1 | 11 | 1 |
+| Risen3Chapter4Data.kt | 11 | 0 | 11 | 0 |
+| **Total** | **172** | **17** | **129** | **17** |
+
+All 172 quest IDs are distinct; no duplicate English titles were found in the inherited catalog. Tests now ensure that the repaired **40-record batch has no blank essential fields**, an actionable step sequence, and source-specific rewards/choice warnings.
+
+**These are source-level assertions only.** The newest GitHub Android build, JVM unit tests and emulator instrumentation must pass at the new HEAD, and the original-game journal-title list still must be compared item by item before overall coverage can be considered complete.
+
+## Remaining work: do NOT claim Risen 3 finished
+
+1. Reconcile missing original-game quests in **Calador, Kila, Taranis, Antigua, Skull Island**, including independent small journal stages, rewards and giver identities. Do not invent new titles from broad prose; check each title against an original journal/guide entry.
+2. Verify and populate the **129 remaining blank prerequisites**, **17 givers**, and **17 reward descriptions**. Do not disguise unknown numeric Glory behind invented precision.
+3. Preserve saved quest IDs and playOrder; append truly missing standalone objectives with new stable IDs, updating chapter expectations and reference-only classification as necessary.
+4. Properly distinguish mutually exclusive **Demon Hunter / Native / Guardian** faction initiations and any permanently missable NPC decisions; these must not count toward a single-playthrough 100% requirement.
+5. Audit the **Tacarigua Become a Voodoo Master** cross-island quest, which may be present in another island under a different title, and finish any not-yet-verified Rosco/treasure milestone aliases.
+6. Check CI and compile on Android after source updates, then do an app usability pass (readability of lengthy walkthroughs, tablet layouts, route-specific completion).
+
+**Status: Risen 3 audit ACTIVE, 40 existing quests polished and 132 other existing entries still require cross-check or coverage work.**

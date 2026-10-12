@@ -127,3 +127,19 @@ Source-verified `R3-C2-095` and `R3-C2-096` against Gamepressure's individual Za
 Source-verified `R3-C2-041` Ghost Eyes giver Drake and its six western-Calador ghosts, restricted to Demon Hunters: https://www.gamepressure.com/risen3/ghost-eyes/z767ee .
 
 **Coverage blocker confirmed:** the game guide's original-game quest index includes independent entries absent from the imported catalog, including `Capt'n Finch's Treasure`, `A Big Haul`, `Ernesto's Engraved Candle Holder`, `Cold Nights`, `Liquid Gold`, `Awesome Deal`, `Dangerous Liaison`, `John's Treasure`, and many Kila/Taranis entries. Reference: https://www.gamepressure.com/risen3/game-guide/z58d5d . Existing chapter allocations and saved quest IDs should remain unchanged while adding individually verified standalone records. The quest catalog is **not complete**. No compile/test pass was demonstrated for these commits.
+
+## Further verified fixes and newly recovered catalog entries — 12 October 2026
+
+Corrected original records:
+- `R3-C2-018` Become a Voodoo Master: Hirutu, Native-only initiation, cross-island Red / Emma / Abbas tasks, Tenya and Hirutu promotion, and separate stage rewards. https://www.gamepressure.com/risen3/become-a-voodoo-master-side-quests-kila/z767e5
+- `R3-C2-026` Letter for Harry: Killian on Calador; Harry on Kila; 200 Glory and 100 Gold. https://www.gamepressure.com/risen3/letter-for-harry/z466ce
+- `R3-C2-073` The Cleaner: Vetranio's broom for Tokel (after One Made It); 100 Glory, 100 Gold. https://www.gamepressure.com/risen3/the-cleaner/z2672c
+- `R3-C2-094` Waterproof: Mauricio, Guardian-only, following golem defeat; three samples. https://www.gamepressure.com/risen3/waterproof/z867d7
+- `R3-C3-010` The Tower in the Shadows: Becca's eastern-Calador lighthouse monsters; 100 Glory, 100 Gold. https://www.gamepressure.com/risen3/the-tower-in-the-shadows/z36841
+
+Added three independently verified original-game quest entries after the existing Chapter 2 records, preserving `R3-C2-001` through `R3-C2-140`:
+- `R3-C2-141` Capt'n Finch's Treasure: Modern Pirates book on Calador, Chapter 3 Forbidden Valley on Kila, Pirate Flag. https://www.gamepressure.com/risen3/captn-finchs-treasure/z4684b
+- `R3-C2-142` Liquid Gold: Kramer's Calador tavern challenge. https://www.gamepressure.com/risen3/liquid-gold/z76683
+- `R3-C2-143` Cold Nights: Mira's mutually exclusive branch following Ernesto's stolen candle holder. https://www.gamepressure.com/risen3/cold-nights/z56681
+
+**New cardinality:** 175 original records (10 / 143 / 11 / 11). JVM expectations adjusted. **Still not complete:** source-index comparison finds other missing standalone quests (notably Ernesto's Engraved Candle Holder, A Big Haul, and multiple Taranis/Kila quests) and placeholder walkthroughs; other fields remain unverified. CI was in progress at commit `6edc8d1` when last checked; no successful Android or unit-test result should be asserted yet.

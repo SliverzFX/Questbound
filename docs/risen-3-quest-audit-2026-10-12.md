@@ -151,3 +151,17 @@ Added `R3-C2-144` Awesome Deal (Bran, 100 Glory and 20 Provisions if purchased; 
 - https://www.gamepressure.com/risen3/ernestos-engraved-candle-holder/z46680
 
 **Catalog now 177 entries** (10 / 145 / 11 / 11); source-level expectation assertions changed. The imported catalog is **still incomplete** relative to the external guide's many Kila/Taranis/Calador journal quests, and some inherited quest details remain generic or unverified. Do not mark audit complete on field population alone. GitHub Actions for the newest commits was queued/in-progress when checked; no successful build or test validation was observed.
+
+## Additional source-index reconciliation — 12 October 2026
+
+The GitHub Actions run on prior HEAD `eb4a2a8` completed successfully, as did `70e3dbf`. Subsequently:
+
+- Corrected **Rum for Rumold** (`R3-C2-066`) from an invented Rumold rum-delivery job to Gadi's harbour riddle. The answer is **One**, reward **100 Glory**. Source: https://www.gamepressure.com/risen3/rum-for-rumold/z0672a
+- Added four verified missing records without renumbering any previous saved IDs:
+  - `R3-C2-146` **One Made It**, Kjeld, southwest lake: Lina's body, rescue Tokel, 200 Glory and 300 Gold. https://www.gamepressure.com/risen3/one-made-it/z26732
+  - `R3-C2-147` **The Lost Treasure**, Kamil, Kila, Native-only; Idol can be returned for Rebound spell or sold to Buddy for 1000 Gold. https://www.gamepressure.com/risen3/the-lost-treasure/z867e6
+  - `R3-C2-148` **The Treasure in the Woods of Taranis**, harbour warehouse map, southern jungle chest, 100 Glory. https://www.gamepressure.com/risen3/the-treasure-in-the-woods-of-taranis/z1672b
+  - `R3-C2-149` **The Treasure in the Deadlands of Taranis**, Lina's lakeside hut map, southwest Deadlands chest, 100 Glory. https://www.gamepressure.com/risen3/the-treasure-in-the-deadlands-of-taranis/za6749
+- Catalog now **181 records** (10 / 149 / 11 / 11); regression-test counts updated, all original IDs preserved.
+
+**Not yet complete**: Kila and Taranis sources index additional journal quests not present in the catalog; placeholder metadata and generic text remain. Latest CI post-181-record change must be checked before claiming successful test validation.

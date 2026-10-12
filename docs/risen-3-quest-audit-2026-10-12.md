@@ -96,3 +96,11 @@ All 172 quest IDs are distinct; no duplicate English titles were found in the in
 New source-level remaining blanks: **17 givers, 97 prerequisites and 17 rewards**, all concentrated in the Chapter 2 Calador/Kila/Taranis imports except a single Chapter 3 giver/reward. The **40-record Tacarigua/Fog Island/Isle of Thieves batch is fully populated**. Total count remains **172**, with all saved-progress IDs unchanged. Regression tests now check all late-chapter prerequisites and the original four-chapter counts.
 
 **Release status:** current Android build, JVM unit test and emulator instrumentation must be verified on the latest commit; no green result has been asserted for this follow-up. The original game's wider quest-title coverage remains a separate incomplete task.
+
+## Continuing audit — Crab Coast / Antigua triggers
+
+Eleven additional Chapter 2 entries (`R3-C2-001`–`R3-C2-011`) now contain explicit start conditions and cross-quest dependencies, preserving every existing ID and ordering. The source-backed sequence includes Bones's post-revival conversations, Ramon's introductory escort unlocking Edward and the crystal quest, and Alvarez's report unlocking the Harbour Town cleanup. The other trigger statements follow the existing guide chain and should still receive a full per-entry source comparison.
+
+**Current source-field tally:** 86 blank prerequisite fields remain (97 minus 11); 17 blank givers and 17 blank rewards remain. The catalog still has 172 entries. This does *not* constitute coverage certification or an Android build pass.
+
+Cross-checks: https://www.gamepressure.com/risen3/lets-get-out-of-here/z26660 ; https://www.gamepressure.com/risen3/bring-ramon-into-the-harbour-town/z067ba ; https://www.gamepressure.com/risen3/find-the-demon-hunter-on-antigua/z167bb .

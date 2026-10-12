@@ -119,3 +119,11 @@ Sources used to check chapter indexing and quest chains:
 - https://www.gamepressure.com/risen3/shattered-inheritance/z467be
 
 **Validation pending:** latest Android compilation, JVM tests and emulator/UI testing; no green checks claimed.
+
+## Completion attempt — source-verified spot corrections
+
+Source-verified `R3-C2-095` and `R3-C2-096` against Gamepressure's individual Zakir entries. The former triggers automatically when retrieving the item from Faruco's chest during Agila's Private Store chain, and pays 200 Glory upon return; the latter needs Chapter 3 and first quest completion, takes place atop Zacharias's tower, and pays 200 Glory + Sapphire on return. Neither should be represented as a vague post-faction generic quest. Source: https://www.gamepressure.com/risen3/bring-zakirs-auri-culci-back/z26741 and https://www.gamepressure.com/risen3/bring-zakirs-auri-culci-back-again/z7684e .
+
+Source-verified `R3-C2-041` Ghost Eyes giver Drake and its six western-Calador ghosts, restricted to Demon Hunters: https://www.gamepressure.com/risen3/ghost-eyes/z767ee .
+
+**Coverage blocker confirmed:** the game guide's original-game quest index includes independent entries absent from the imported catalog, including `Capt'n Finch's Treasure`, `A Big Haul`, `Ernesto's Engraved Candle Holder`, `Cold Nights`, `Liquid Gold`, `Awesome Deal`, `Dangerous Liaison`, `John's Treasure`, and many Kila/Taranis entries. Reference: https://www.gamepressure.com/risen3/game-guide/z58d5d . Existing chapter allocations and saved quest IDs should remain unchanged while adding individually verified standalone records. The quest catalog is **not complete**. No compile/test pass was demonstrated for these commits.

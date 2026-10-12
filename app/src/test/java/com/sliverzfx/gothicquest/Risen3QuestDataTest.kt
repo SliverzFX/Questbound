@@ -7,7 +7,7 @@ import org.junit.Test
 class Risen3QuestDataTest {
     @Test
     fun importedChaptersHaveUniqueIdsAndContiguousOrder() {
-        assertEquals(listOf(10, 140, 11, 11), (1..4).map { GameId.RISEN_3.chapterQuests(it).size })
+        assertEquals(listOf(10, 143, 11, 11), (1..4).map { GameId.RISEN_3.chapterQuests(it).size })
         val quests = GameId.RISEN_3.quests()
         assertEquals(quests.size, quests.map { it.id }.toSet().size)
         for (chapter in 1..4) {
@@ -67,10 +67,10 @@ class Risen3QuestDataTest {
 
     @Test
     fun risenThreeOriginalChapterTotalsAndSavedProgressKeysRemainStable() {
-        assertEquals(172, Risen3QuestData.quests.size)
-        assertEquals(172, Risen3QuestData.quests.map { it.id }.toSet().size)
+        assertEquals(175, Risen3QuestData.quests.size)
+        assertEquals(175, Risen3QuestData.quests.map { it.id }.toSet().size)
         assertEquals(
-            listOf(10, 140, 11, 11),
+            listOf(10, 143, 11, 11),
             (1..4).map { Risen3QuestData.chapter(it).size }
         )
         assertEquals("R3-C2-098", Risen3QuestData.chapter(2)[97].id)

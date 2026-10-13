@@ -215,3 +215,34 @@ Appended three missing original journal entries, all with separate stable IDs an
 Also upgraded `R3-C2-088` **The Swordmaster's Treasure**: read book upstairs at Taranis mage HQ, dig on north Kila island hill near Cole's Ghouls, receive 100 Glory and chest's Tattered Scabbard. https://www.gamepressure.com/risen3/the-swordmasters-treasure/z86774
 
 **Catalog now 201 quest records (10 / 169 / 11 / 11), maintaining the original quest IDs.** The original Kila side-quest index's previously called-out three omissions are now represented. Wider game coverage, source-level metadata gaps, precise reward verification and Android device instrumentation are not certified. The latest workflow must pass before marking this commit built.
+
+## 13 October 2026 — consolidated source-index completion milestone
+
+**Scope:** Original-game walkthrough coverage of the *Gamepressure Risen 3 PC guide index* across all island side/main sections, crew, weapons and other/sea quests. This is not the same as certifying the entire engine journal, all possible branching saves, DLC, or a human-playtested 100% run. Its current **241 app navigation entries include two explicitly reference-only/duplicate milestones**, and cannot be interpreted as 241 separate completable journal quests.
+
+### Source index reconciliation
+
+- Retained the initial 172 record IDs and the intervening appended IDs while recovering a further **27 records in one consolidated pass**: 13 Calador/Kila/Taranis missions (`R3-C2-170`–`182`); 17 distinct crew and companion missions (`R3-C2-183`–`199`); and ten forging/open-sea missions (`R3-C2-200`–`209`). **Note: the combined figure is 40 new records in this pass (13 + 17 + 10)**; the original count rose from 201 to 241. Saved identifiers and ordering for previous quest records were not changed.
+- Identified that `R3-C2-152` duplicated the existing `R3-C2-111` The Nameless Captain's Treasure. Kept ID 152 for saved data compatibility but renamed it to **Taranis clue — The Nameless Captain's Treasure**, explicitly labelled **REFERENCE ONLY** and linked the genuine quest 111. `R3-C2-092` (A New Rank — Guardians) is another legacy **REFERENCE ONLY** record for `R3-C2-091` Advancing Among the Guardians, not a distinct Guardian promotion mission.
+- Replaced missing and misleading data in 26+ earlier Calador and Taranis records, including Drake's Demon Hunter rank and Ghost Eyes, Mason's Test of the Righteous, Yakov's optional Chapter-3-only fight, Green Flames, Graham's turnips, the Nameless One's campfire, Wilson's letter from Grace, Lami's missing-gnome chain, Taranis tavern minigames, Magnus's promotion, Waterproof, and the Chapter-3 Inquisition alliance.
+- Made faction restrictions explicit. Do **not** require all three initiations or opposing faction-specific promotions for a single save. Yakov's quest appears only if the player chooses violence, whereas a peaceful refund does not create the mission.
+
+### Data validation
+
+- Source-code audit of all eight Risen 3 quest files on the development branch found **241 distinct IDs, 241 distinct displayed titles, zero blank givers, zero blank prerequisite fields, zero blank reward fields and zero missing walkthrough-step lists**.
+- Automated JVM regression assertions added to check the four-section counts **10 / 209 / 11 / 11**, contiguous playOrder, unique IDs/titles, nonblank metadata and stable reference IDs.
+- **Android CI:** the GitHub Actions build for this latest work must report success before claiming a verified compilation. No physical-device or emulator test pass has been observed for these new changes.
+
+### Scope and outstanding certification constraints
+
+The index reconciliation is now suitable as the **source-guide coverage milestone**: known separately indexed quests are represented and known shared/duplicate titles are cross-referenced, not silently double-counted. However, original in-game journals may split multiple objectives into smaller errands, source reference rewards for some stages remain explicitly unverified, and the two reference-only entries should not be treated as additional independent completion requirements. A true end-to-end **in-game 100% trophy / every internal quest state** certificate is not established by this static guide comparison. Completion is also contingent on the latest build and gameplay smoke test.
+
+Principal references:
+- https://www.gamepressure.com/risen3/
+- https://www.gamepressure.com/risen3/side-quests-calador/z7666e
+- https://www.gamepressure.com/risen3/side-quests-taranis/z36724
+- https://www.gamepressure.com/risen3/ghost-eyes/z767ee
+- https://www.gamepressure.com/risen3/a-new-rank-side-quests-calador/z567ec
+- https://www.gamepressure.com/risen3/advancing-among-the-guardians/z567d4
+- https://www.gamepressure.com/risen3/green-flames/z5666b
+- https://www.eliteguias.com/guias/r/risen3/risen-3-titan-lords-p216.php

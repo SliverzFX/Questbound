@@ -246,3 +246,14 @@ Principal references:
 - https://www.gamepressure.com/risen3/advancing-among-the-guardians/z567d4
 - https://www.gamepressure.com/risen3/green-flames/z5666b
 - https://www.eliteguias.com/guias/r/risen3/risen-3-titan-lords-p216.php
+
+### Final targeted corrections after source-index count
+
+Independent quest pages exposed five further original Taranis guide mistakes in the inherited records, all corrected in place: `R3-C2-064` Paperwork now finds **seven Marbuk's Notes** for Marbuk; `065` Harbour Thieves identifies **Rumold**, **three Looting Goblins** and the choice of box versus Gold; `074` Paula Hears Noises specifies **one Loud Armadillo** behind her kitchen; `077` The Private Store names **Agila** and the three mage crystal pouches; and `080` The Shirker is a **Downes arm-wrestling minigame**, not the previously imported mine-worker sidequest. Source pages:
+- https://www.gamepressure.com/risen3/paperwork/z66727
+- https://www.gamepressure.com/risen3/harbour-thieves/z86729
+- https://www.gamepressure.com/risen3/paula-hears-noises/z3672d
+- https://www.gamepressure.com/risen3/the-private-store/z16731
+- https://www.gamepressure.com/risen3/the-shirker/z86738
+
+The enhanced 241-record regression test was observed to pass the **Run unit tests** step in GitHub Actions on commit `215e2f5`; that job also completed **Compile Android UI tests** successfully. At this writing, **Build debug APK** and CI for newer commits remained in progress. This is not an emulator or physical Android gameplay test.

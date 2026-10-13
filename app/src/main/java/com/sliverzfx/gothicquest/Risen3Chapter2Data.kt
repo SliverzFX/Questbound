@@ -203,6 +203,30 @@ internal object Risen3Chapter2Data {
             summary = "Speak to Hirutu and agree to seek a peaceful solution to the invasion.", walkthroughSteps = listOf("Speak to Hirutu and agree to seek a peaceful solution to the invasion.", "Ask Tenya about the plan; take Makoto's hair from his bed and bring it to Tenya for a voodoo doll.", "Stand near Makoto, activate the doll and control him.", "As Makoto, speak with Tenya, Kamil and Bahati to gather support.", "Present their arguments to Hirutu, then return to the hero's body and collect the reward."),
             reward = "1660 Glory and 800 Gold.", warnings = "Peaceful resolution uses voodoo; account for differing roleplay choices.",
             searchTags = listOf("Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-160", chapter = 2, playOrder = 160, title = "Crazy Homis",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Raka", location = "Taranis", prerequisites = "Speak with Raka beside the harbour-to-Mages-Camp road.",
+            summary = "Ask Raka about Brown, who is hiding in a cave near the road.", walkthroughSteps = listOf("Ask Raka about Brown, who is hiding in a cave near the road.", "Enter the cave, deal with Cave Bats and find Brown.", "Tell Brown that the mushrooms caused his hallucinations and send him back to the camp.", "Complete the conversation, unlocking The Most Dangerous Gnome in the World."),
+            reward = "100 Glory and 264 Gold.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-161", chapter = 2, playOrder = 161, title = "The Most Dangerous Gnome in the World",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Brown", location = "Taranis", prerequisites = "During Crazy Homis, speak to Brown in the cave south of the Mages Camp.",
+            summary = "Finish Brown's dialogue during Crazy Homis and convince him to leave the cave.", walkthroughSteps = listOf("Finish Brown's dialogue during Crazy Homis and convince him to leave the cave.", "Return to Raka on the road to the Mages Camp.", "Tell Raka what happened to complete this follow-up."),
+            reward = "100 Glory and 10 Gold.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-162", chapter = 2, playOrder = 162, title = "Big White Hunter",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Tadashi", location = "Kila", prerequisites = "Find Tadashi in the jungle near Kila's Natives Village and ask for hunting training.",
+            summary = "Speak to Tadashi and accept his trial against the Dangerous Alligator and Angry Warthog.", walkthroughSteps = listOf("Speak to Tadashi and accept his trial against the Dangerous Alligator and Angry Warthog.", "South of Asali's waterfall, reach the pool and defeat the Dangerous Alligator.", "Follow the northeastern path, avoid the trap and kill the Angry Warthog.", "Return to Tadashi to claim rewards and unlock hunting training."),
+            reward = "200 Glory, 3 Warthog Skins and access to Tadashi's hunting training; separate kill Glory.", warnings = "",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
         )
         ))
     }

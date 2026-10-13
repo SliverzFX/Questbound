@@ -165,3 +165,18 @@ The GitHub Actions run on prior HEAD `eb4a2a8` completed successfully, as did `7
 - Catalog now **181 records** (10 / 149 / 11 / 11); regression-test counts updated, all original IDs preserved.
 
 **Not yet complete**: Kila and Taranis sources index additional journal quests not present in the catalog; placeholder metadata and generic text remain. Latest CI post-181-record change must be checked before claiming successful test validation.
+
+## 13 October 2026 continuation — source-index repairs
+
+**Catalog: 187 entries (10 / 155 / 11 / 11).** Original quest IDs 001–140 in Chapter 2 and all previous chapter IDs are preserved. Newly appended:
+
+- 150 Herbs and Tinctures (Nergal, five herbs, recipe/Tincture) https://www.gamepressure.com/risen3/herbs-and-tinctures/z3673c
+- 151 Language Lessons (Bisi, 20 Glory) https://www.gamepressure.com/risen3/language-lessons/z16740
+- 152 The Nameless Captain's Treasure (Magical Legends on Taranis, Vial on Tacarigua) https://www.gamepressure.com/risen3/the-nameless-captains-treasure-side-quests-taranis/z5673e
+- 153 Get Back Soon, Lad (Harry/Douglas on Kila) https://www.gamepressure.com/risen3/get-back-soon-lad/z366cd
+- 154 Precious Silverware (Colby, deliberately lose Striking Arguments) https://www.gamepressure.com/risen3/precious-silverware/z166d1
+- 155 Monkey Business (Pamir, Monkey Trainer, earring) https://www.gamepressure.com/risen3/monkey-business/z766d7
+
+Existing entry R3-C2-089 The Gourmet was corrected to Lumbrok's Aromatic Wine request on Kila, sourced at https://www.gamepressure.com/risen3/the-gourmet-side-quests-kila/z76773 .
+
+The original source index still lists other quests absent from the app (for example Taranis: We're a Band of Brothers, Gnome in the Hole, Crazy Homis, and John's Treasure; Kila: On the Warpath, Big White Hunter, and Revenge is Sweet). Additional entries and old generic walkthroughs require review before declaring coverage complete. CI for newest commits and device instrumentation not yet verified.

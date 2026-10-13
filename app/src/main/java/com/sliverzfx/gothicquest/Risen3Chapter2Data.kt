@@ -265,6 +265,33 @@ internal object Risen3Chapter2Data {
             reward = "500 Glory for the quest, plus 100 Glory during Hirutu's prisoner discussion.",
             warnings = "Mutually exclusive Soul outcomes; the quest cannot be fully resolved before On the Warpath.",
             searchTags = listOf("Kila", "Patty", "Slim"),
+        ),
+        Quest(
+            id = "R3-C2-167", chapter = 2, playOrder = 167,
+            title = "Useless Existence", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Leonard", location = "Kila",
+            prerequisites = "Find Leonard by his hut in the center of the small island north of Kila.", summary = "Swim to the island and talk to Leonard by his hut.",
+            walkthroughSteps = listOf("Swim to the island and talk to Leonard by his hut.", "Follow the marker southwest to the cove and defeat the creatures.", "Recover Leonard's Equipment near the water.", "Return it to Leonard."),
+            reward = "200 Glory and 3 Magic Crystals; 100 Glory for finding the equipment.", warnings = "",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-168", chapter = 2, playOrder = 168,
+            title = "All Cats Are Grey By Night", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Cole", location = "Kila",
+            prerequisites = "Find Cole on the eastern shore of the small island north of Kila.", summary = "Talk to Cole on the island's eastern shore.",
+            walkthroughSteps = listOf("Talk to Cole on the island's eastern shore.", "Reach the central clearing and defeat five Ghouls, luring them individually if possible.", "The nearby Swamp Golem is optional.", "Return to Cole to finish."),
+            reward = "200 Glory, plus 100 Glory per Ghoul defeated.", warnings = "",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-169", chapter = 2, playOrder = 169,
+            title = "Completely Lost", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Crouse", location = "Kila",
+            prerequisites = "Reach Chapter 3, enter the Forbidden Valley on Kila, and find Crouse by its beach.", summary = "Speak to shipwreck survivor Crouse by the valley beach.",
+            walkthroughSteps = listOf("Speak to shipwreck survivor Crouse by the valley beach.", "Escort him east to the Large Gate into the jungle and protect him from monsters.", "Cross the gate and talk to Crouse to complete the escort."),
+            reward = "200 Glory plus faction-specific reward: Volumes of Ancient Knowledge (Demon Hunters), Jade (Natives), or Magic Crystal (Guardians).", warnings = "Chapter 3 access required; item reward depends on faction.",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
         )
         ))
     }

@@ -227,6 +227,33 @@ internal object Risen3Chapter2Data {
             summary = "Speak to Tadashi and accept his trial against the Dangerous Alligator and Angry Warthog.", walkthroughSteps = listOf("Speak to Tadashi and accept his trial against the Dangerous Alligator and Angry Warthog.", "South of Asali's waterfall, reach the pool and defeat the Dangerous Alligator.", "Follow the northeastern path, avoid the trap and kill the Angry Warthog.", "Return to Tadashi to claim rewards and unlock hunting training."),
             reward = "200 Glory, 3 Warthog Skins and access to Tadashi's hunting training; separate kill Glory.", warnings = "",
             searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-163", chapter = 2, playOrder = 163,
+            title = "A Delectable Meal", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Ixil",
+            location = "Kila", prerequisites = "Speak to Ixil in Kila's Natives Village and accept his request to deliver provisions to Baraka.",
+            summary = "Talk to Ixil in the centre of the village and take his provisions for Baraka.", walkthroughSteps = listOf("Talk to Ixil in the centre of the village and take his provisions for Baraka.", "Walk northwest to the gate of the Forbidden Valley and speak with Baraka.", "Decide whether to truthfully identify Ixil as the cook, exposing the poisoned food, or lie that the village women prepared it.", "If you lied, speak to Baraka again the following day; either route unlocks The Reckoning."),
+            reward = "300 Glory and 100 Gold if lying; 200 Gold if telling the truth. Unlocks The Reckoning.", warnings = "Choice changes rewards and how Baraka discovers the plot.",
+            searchTags = listOf("Kila", "Recovered journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-164", chapter = 2, playOrder = 164,
+            title = "Better Safe Than Sorry", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Miamiti",
+            location = "Kila", prerequisites = "Speak to Miamiti on a northeastern ledge of Kila's Natives Village; complete Booze's Befuddled Mind before the night escort.",
+            summary = "Find Miamiti beyond the rope bridge on the northeastern ledge of the village.", walkthroughSteps = listOf("Find Miamiti beyond the rope bridge on the northeastern ledge of the village.", "Restore Booze's senses through Booze's Befuddled Mind, then return to Miamiti at night.", "Escort Miamiti by the unguarded alternative descent rather than the village's main entrance.", "Defend her during the journey to the pirate beach and finish the dialogue there."),
+            reward = "200 Glory and a Black Pearl.", warnings = "Avoid village guards. This quest unlocks Harry's Forbidden Fruit.",
+            searchTags = listOf("Kila", "Recovered journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-165", chapter = 2, playOrder = 165,
+            title = "The Reckoning", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Baraka",
+            location = "Kila", prerequisites = "Complete A Delectable Meal, then speak to Baraka at the Forbidden Valley gate.",
+            summary = "Return to Baraka after resolving Ixil's poisoned provisions.", walkthroughSteps = listOf("Return to Baraka after resolving Ixil's poisoned provisions.", "Accept Baraka's plan and take Baraka's Amulet.", "Go to the Natives Village, find Ixil and confront him with the amulet.", "Resolve the encounter and return to Baraka if the journal requests a report."),
+            reward = "Quest completion reward varies by choice; exact payout requires verification.", warnings = "Continuation of A Delectable Meal; do not start before resolving Ixil's delivery.",
+            searchTags = listOf("Kila", "Recovered journal quest"),
         )
         ))
     }

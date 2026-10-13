@@ -90,4 +90,29 @@ class Risen3QuestDataTest {
         assertTrue(byId.getValue("R3-C1-009").prerequisites.contains("Parrot Flight"))
     }
 
+    @Test
+    fun risenThreeSourceIndexPassHasMetadataUniqueTitlesAndStableChapterOrder() {
+        val quests = Risen3QuestData.quests
+        assertEquals(241, quests.size)
+        assertEquals(quests.size, quests.map { it.id }.toSet().size)
+        assertEquals(quests.size, quests.map { it.title }.toSet().size)
+        assertTrue("Missing quest giver", quests.all { it.giver.isNotBlank() })
+        assertTrue("Missing quest prerequisite", quests.all { it.prerequisites.isNotBlank() })
+        assertTrue("Missing quest reward note", quests.all { it.reward.isNotBlank() })
+        assertTrue("Missing quest summary", quests.all { it.summary.isNotBlank() })
+        assertTrue("Missing quest steps", quests.all { it.walkthroughSteps.isNotEmpty() })
+        for (chapter in 1..4) {
+            val entries = Risen3QuestData.chapter(chapter)
+            assertEquals((1..entries.size).toList(), entries.map { it.playOrder })
+        }
+        val byId = quests.associateBy { it.id }
+        assertTrue(byId.getValue("R3-C2-152").warnings.contains("REFERENCE ONLY"))
+        assertTrue(byId.getValue("R3-C2-092").warnings.contains("REFERENCE ONLY"))
+        assertEquals("The Nameless Captain's Treasure", byId.getValue("R3-C2-111").title)
+        assertEquals("A Guardian's Armor", byId.getValue("R3-C2-093").title)
+        assertEquals("Terror from the Deep", byId.getValue("R3-C2-209").title)
+        assertTrue(byId.getValue("R3-C2-044").warnings.contains("Not faction-exclusive"))
+        assertTrue(byId.getValue("R3-C2-041").warnings.contains("vanishes"))
+    }
+
 }

@@ -130,12 +130,12 @@ internal object Risen3Chapter2Data {
             searchTags = listOf("Taranis", "Recovered original journal quest"),
         ),
         Quest(
-            id = "R3-C2-152", chapter = 2, playOrder = 152, title = "The Nameless Captain's Treasure",
-            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
-            giver = "Automatic: reading Magical Legends", location = "Taranis / Tacarigua",
-            prerequisites = "Complete Visiting Rights on Taranis and read Magical Legends upstairs in the mages' headquarters.", summary = "Uncover the buried treasure and the Vial legendary item on Tacarigua.",
-            walkthroughSteps = listOf("On Taranis, after Visiting Rights, go upstairs in the main mage building and read Magical Legends.", "Sail to Tacarigua with a shovel and reach the rocky area beside the central beach.", "Find the red X, dig up the chest and loot it to obtain the Vial."),
-            reward = "100 Glory for the treasure quest; additional 400 Glory on obtaining the legendary Vial.", warnings = "",
+            id = "R3-C2-152", chapter = 2, playOrder = 152, title = "Taranis clue — The Nameless Captain's Treasure",
+            aliases = listOf(), category = "REFERENCE — EXISTING TREASURE QUEST",
+            giver = "Automatic: read Magical Legends on Taranis", location = "Taranis / Tacarigua",
+            prerequisites = "Reach the mage headquarters on Taranis through Visiting Rights and read Magical Legends; use R3-C2-111 to track the actual treasure.", summary = "Taranis source-book reference for The Nameless Captain's Treasure (R3-C2-111); not a second distinct quest.",
+            walkthroughSteps = listOf("After Visiting Rights, read Magical Legends on the upper floor of the Taranis mages' building.", "This starts the very same Nameless Captain's Treasure tracked at R3-C2-111; sail to Tacarigua and dig up the Vial at the central beach.", "Mark the original Tacarigua treasure quest complete; do not count this navigation reference as a second journal quest."),
+            reward = "No separate reward; the actual R3-C2-111 treasure quest awards 100 Glory and legendary Vial.", warnings = "REFERENCE ONLY: duplicated Taranis-to-Tacarigua clue, not an independent quest. Legacy saved ID kept for compatibility.",
             searchTags = listOf("Taranis", "Recovered original journal quest"),
         ),
         Quest(

@@ -254,6 +254,17 @@ internal object Risen3Chapter2Data {
             summary = "Return to Baraka after resolving Ixil's poisoned provisions.", walkthroughSteps = listOf("Return to Baraka after resolving Ixil's poisoned provisions.", "Accept Baraka's plan and take Baraka's Amulet.", "Go to the Natives Village, find Ixil and confront him with the amulet.", "Resolve the encounter and return to Baraka if the journal requests a report."),
             reward = "Quest completion reward varies by choice; exact payout requires verification.", warnings = "Continuation of A Delectable Meal; do not start before resolving Ixil's delivery.",
             searchTags = listOf("Kila", "Recovered journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-166", chapter = 2, playOrder = 166,
+            title = "Revenge is Sweet", aliases = listOf(),
+            category = "SIDE QUEST — KILA", giver = "Patty",
+            location = "Kila", prerequisites = "Speak to Patty on the island north of Kila's pirate beach about Slim; resolve On the Warpath before deciding Slim's fate.",
+            summary = "Find Slim, confront the man who supplied the fatal treasure map, and decide whether the Natives sacrifice or release him.",
+            walkthroughSteps = listOf("Swim to Patty's small island north of the pirate beach; ask about Slim (optional: you can find him without speaking to Patty).", "Find Slim captive in a hut inside Kila's Natives Village.", "Complete On the Warpath to resolve the pirate–Native conflict.", "Speak to Hirutu about Slim and decide whether he should be sacrificed (3 negative Soul) or spared (3 positive Soul).", "Tell Slim the decision; if released, find him back at the pirate beach. Update Patty if she is not with you."),
+            reward = "500 Glory for the quest, plus 100 Glory during Hirutu's prisoner discussion.",
+            warnings = "Mutually exclusive Soul outcomes; the quest cannot be fully resolved before On the Warpath.",
+            searchTags = listOf("Kila", "Patty", "Slim"),
         )
         ))
     }

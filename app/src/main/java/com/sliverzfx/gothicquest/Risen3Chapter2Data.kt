@@ -110,6 +110,33 @@ internal object Risen3Chapter2Data {
             walkthroughSteps = listOf("While investigating Lina's hut during One Made It, take the Treasure Map from the wall.", "Bring a shovel and travel southwest into the Taranis Deadlands.", "Clear or avoid enemies around the Shadow Lord's lair; defeating the Shadow Lord is not necessary for this treasure.", "Find the red X and dig up 50 Gold, Gold Ore, Golden Goblet and Emerald."),
             reward = "100 Glory; 50 Gold, Gold Ore, Golden Goblet and Emerald in the chest.", warnings = "",
             searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-150", chapter = 2, playOrder = 150, title = "Herbs and Tinctures",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Nergal", location = "Taranis",
+            prerequisites = "Gain access to the Mages Camp's main building and talk to Nergal in its basement.", summary = "Collect five Taranis Herbs from the central lake for Nergal.",
+            walkthroughSteps = listOf("Find Nergal in the basement under the main staircase of the mages' building.", "Accept his herbal request and travel to the lake in central Taranis.", "Collect at least five Taranis Herbs growing around the lake.", "Deliver them to Nergal; speak to him again after his initial banana reward to receive the real reward."),
+            reward = "200 Glory, Tincture of Toughness and Recipe for Alchemist's Liquor.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-151", chapter = 2, playOrder = 151, title = "Language Lessons",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Bisi", location = "Taranis",
+            prerequisites = "Reach the Mages Camp and speak with the wandering gnome Bisi.", summary = "Teach Bisi an expression in a short dialogue exchange.",
+            walkthroughSteps = listOf("Find Bisi wandering around the Mages Camp or inside the main mages' building.", "Choose the dialogue option to teach him a new saying.", "Finish the conversation to complete the quest."),
+            reward = "20 Glory.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-152", chapter = 2, playOrder = 152, title = "The Nameless Captain's Treasure",
+            aliases = listOf(), category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY",
+            giver = "Automatic: reading Magical Legends", location = "Taranis / Tacarigua",
+            prerequisites = "Complete Visiting Rights on Taranis and read Magical Legends upstairs in the mages' headquarters.", summary = "Uncover the buried treasure and the Vial legendary item on Tacarigua.",
+            walkthroughSteps = listOf("On Taranis, after Visiting Rights, go upstairs in the main mage building and read Magical Legends.", "Sail to Tacarigua with a shovel and reach the rocky area beside the central beach.", "Find the red X, dig up the chest and loot it to obtain the Vial."),
+            reward = "100 Glory for the treasure quest; additional 400 Glory on obtaining the legendary Vial.", warnings = "",
+            searchTags = listOf("Taranis", "Recovered original journal quest"),
         )
         ))
     }

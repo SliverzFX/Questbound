@@ -180,3 +180,16 @@ The GitHub Actions run on prior HEAD `eb4a2a8` completed successfully, as did `7
 Existing entry R3-C2-089 The Gourmet was corrected to Lumbrok's Aromatic Wine request on Kila, sourced at https://www.gamepressure.com/risen3/the-gourmet-side-quests-kila/z76773 .
 
 The original source index still lists other quests absent from the app (for example Taranis: We're a Band of Brothers, Gnome in the Hole, Crazy Homis, and John's Treasure; Kila: On the Warpath, Big White Hunter, and Revenge is Sweet). Additional entries and old generic walkthroughs require review before declaring coverage complete. CI for newest commits and device instrumentation not yet verified.
+
+## 13 October 2026 — next seven recovered original journal entries
+
+Appended **R3-C2-156** We're a Band of Brothers (Downes), **157** Gnome in the Hole (Abbas), **158** John's Treasure (Faded Diary from Taranis, dig on Calador), **159** On the Warpath (Hirutu and Tenya's Kila voodoo diplomacy), **160** Crazy Homis (Raka and Brown), **161** The Most Dangerous Gnome in the World (Brown/Raka follow-up), and **162** Big White Hunter (Tadashi's alligator and warthog test). Quest giver, start trigger, multi-step walkthrough and reward fields were provided for each. All earlier save IDs remain stable. Source references:
+- https://www.gamepressure.com/risen3/were-a-band-of-brothers/z36742
+- https://www.gamepressure.com/risen3/gnome-in-the-hole/z46743
+- https://www.gamepressure.com/risen3/johns-treasure/z56771
+- https://www.gamepressure.com/risen3/on-the-warpath/z466d4
+- https://www.gamepressure.com/risen3/crazy-homis/z56744
+- https://www.gamepressure.com/risen3/the-most-dangerous-gnome-in-the-world/z66745
+- https://www.gamepressure.com/risen3/big-white-hunter/z366d3
+
+**194 records (10 / 162 / 11 / 11).** Regression test totals adjusted, but newest build status pending. Source index still includes quests absent from the app (including A Delectable Meal, Better Safe Than Sorry, Revenge is Sweet, and other standalone Kila/Taranis content); do not declare fully complete or exhaustively verified.

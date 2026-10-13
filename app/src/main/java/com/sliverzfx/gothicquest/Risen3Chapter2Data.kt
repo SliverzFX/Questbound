@@ -137,6 +137,36 @@ internal object Risen3Chapter2Data {
             walkthroughSteps = listOf("On Taranis, after Visiting Rights, go upstairs in the main mage building and read Magical Legends.", "Sail to Tacarigua with a shovel and reach the rocky area beside the central beach.", "Find the red X, dig up the chest and loot it to obtain the Vial."),
             reward = "100 Glory for the treasure quest; additional 400 Glory on obtaining the legendary Vial.", warnings = "",
             searchTags = listOf("Taranis", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-153", chapter = 2, playOrder = 153,
+            title = "Get Back Soon, Lad", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Harry",
+            location = "Kila", prerequisites = "Speak to Harry at Kila's pirate beach about his missing friend Douglas.",
+            summary = "Speak with Harry on the pirates' beach and accept the search for Douglas.", walkthroughSteps = listOf("Speak with Harry on the pirates' beach and accept the search for Douglas.", "Enter the spider cave southeast of the pirate encampment; beware its larger spiders.", "Reach the eastern exit, find Douglas's corpse and take the Healing and Crystal Torch scrolls nearby.", "Return to Harry to report Douglas's death. Telling Booze is optional."),
+            reward = "200 Glory for quest completion; 100 Glory upon discovering Douglas's body.",
+            warnings = "",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-154", chapter = 2, playOrder = 154,
+            title = "Precious Silverware", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Colby",
+            location = "Kila", prerequisites = "During Striking Arguments on Kila, deliberately lose the duel to Colby to unlock his silverware trade.",
+            summary = "Agree to Colby's plan in Striking Arguments, let him win and talk to him again.", walkthroughSteps = listOf("Agree to Colby's plan in Striking Arguments, let him win and talk to him again.", "Find or collect ten Silver Goblets and ten Silver Plates.", "Hand in all twenty items to Colby. He pays 80 Gold per Silver Goblet or Plate."),
+            reward = "400 Glory and up to 1600 Gold from the twenty silverware trades.",
+            warnings = "Mutually exclusive: defeating Colby in Striking Arguments prevents this quest.",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-155", chapter = 2, playOrder = 155,
+            title = "Monkey Business", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Pamir",
+            location = "Kila", prerequisites = "Speak with Pamir on the raised ground near Kila's Natives Village; Monkey Trainer ability is required.",
+            summary = "Meet Pamir and follow him to the monkey cave below the Natives Village.", walkthroughSteps = listOf("Meet Pamir and follow him to the monkey cave below the Natives Village.", "If necessary learn Monkey Trainer from Buddy at the pirate beach (Influence 40 and 1000 Gold).", "Use monkey control to enter the cave and retrieve the Small Earring.", "Return control to the hero and give Pamir his earring."),
+            reward = "300 Glory and 2 Sapphires.",
+            warnings = "",
+            searchTags = listOf("Kila", "Recovered original journal quest"),
         )
         ))
     }

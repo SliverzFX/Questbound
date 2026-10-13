@@ -203,3 +203,15 @@ Added three Kila journal records with stable new IDs `R3-C2-163` A Delectable Me
 ## 13 October 2026 — Patty/Slim recovery
 
 Added `R3-C2-166` Revenge is Sweet with Patty, captive Slim, On the Warpath gate, Hirutu's sacrifice/spare decision and 500 Glory reward. Source: https://www.gamepressure.com/risen3/revenge-is-sweet/z866d8 . Catalog is **198 entries (10 / 166 / 11 / 11)**, existing IDs stable and regression expectations updated. Remaining external-index omissions and generic entries still need review; newest CI unverified.
+
+## 13 October 2026 — northern Kila island reconciliation
+
+Appended three missing original journal entries, all with separate stable IDs and walkthroughs:
+
+- `R3-C2-167` **Useless Existence** — Leonard's gear in the southwestern cove of the northern island; 200 Glory + 3 Magic Crystals. Sources: https://www.gry-online.pl/poradniki/risen-3-wladcy-tytanow/bezuzyteczna-egzystencja/z111717 and https://gamefaqs.gamespot.com/pc/763908-risen-3-titan-lords/faqs/75733
+- `R3-C2-168` **All Cats Are Grey By Night** — Cole, five Ghouls; Swamp Golem optional; 200 Glory. https://www.gamepressure.com/risen3/all-cats-are-grey-by-night/z266db
+- `R3-C2-169` **Completely Lost** — Chapter 3 only; escort Crouse east from Forbidden Valley's beach to the Large Gate; faction-specific rewards. https://www.gamepressure.com/risen3/completely-lost/z5684c
+
+Also upgraded `R3-C2-088` **The Swordmaster's Treasure**: read book upstairs at Taranis mage HQ, dig on north Kila island hill near Cole's Ghouls, receive 100 Glory and chest's Tattered Scabbard. https://www.gamepressure.com/risen3/the-swordmasters-treasure/z86774
+
+**Catalog now 201 quest records (10 / 169 / 11 / 11), maintaining the original quest IDs.** The original Kila side-quest index's previously called-out three omissions are now represented. Wider game coverage, source-level metadata gaps, precise reward verification and Android device instrumentation are not certified. The latest workflow must pass before marking this commit built.

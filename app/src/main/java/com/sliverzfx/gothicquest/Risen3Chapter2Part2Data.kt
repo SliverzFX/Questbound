@@ -411,7 +411,7 @@ internal object Risen3Chapter2Part2Data {
             category = "SAFE — LATER PIRATE-BEACH SIDE QUEST",
             giver = "Harry",
             location = "Kila",
-            prerequisites = "Find Harry near the Kila caves and accept his request concerning the forbidden fruit.",
+            prerequisites = "Complete Better Safe Than Sorry by escorting Miamiti to the Kila pirate beach, then speak with Harry.",
             summary = "Bring Harry the Blue Flower for Miamiti.",
             walkthroughSteps = listOf("Walkthrough. This quest unlocks after the prerequisite Better Safe Than Sorry brings Miamiti to the pirates' beach. Speak with Harry, then ask Cunningham about the rare flower. The Blue Flower is northeast of the Natives Village beyond a long rope bridge.", "Completion. Return the Blue Flower to Harry."),
             reward = "200 Glory + 250 Gold",

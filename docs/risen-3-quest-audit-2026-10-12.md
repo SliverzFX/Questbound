@@ -193,3 +193,9 @@ Appended **R3-C2-156** We're a Band of Brothers (Downes), **157** Gnome in the H
 - https://www.gamepressure.com/risen3/big-white-hunter/z366d3
 
 **194 records (10 / 162 / 11 / 11).** Regression test totals adjusted, but newest build status pending. Source index still includes quests absent from the app (including A Delectable Meal, Better Safe Than Sorry, Revenge is Sweet, and other standalone Kila/Taranis content); do not declare fully complete or exhaustively verified.
+
+## 13 October 2026 — Kila quest-chain audit
+
+Added three Kila journal records with stable new IDs `R3-C2-163` A Delectable Meal (Ixil and Baraka, truth-versus-lie rewards), `R3-C2-164` Better Safe Than Sorry (Miamiti's nighttime escort, completion reward 200 Glory + Black Pearl), and `R3-C2-165` The Reckoning (Baraka and Ixil). The Reckoning payout is deliberately not asserted as a verified number. Also corrected `R3-C2-061` Forbidden Fruit to require completion of Better Safe Than Sorry first. Source: https://www.gamepressure.com/risen3/a-delectable-meal/z566d5 ; https://www.gamepressure.com/risen3/better-safe-than-sorry/z666d6 ; https://www.gamepressure.com/risen3/the-reckoning/z966d9 ; https://www.gamepressure.com/risen3/forbidden-fruit/z566cf .
+
+**Catalog now 197 entries (10/165/11/11)**. Test counts updated but the latest CI results must still be checked. Remaining Kila index entries include Revenge is Sweet, Useless Existence, All Cats Are Grey By Night, Completely Lost; remaining Calador/Taranis and crew/weapon-guide coverage not certified. No 100% completion claim.

@@ -167,6 +167,42 @@ internal object Risen3Chapter2Data {
             reward = "300 Glory and 2 Sapphires.",
             warnings = "",
             searchTags = listOf("Kila", "Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-156", chapter = 2, playOrder = 156,
+            title = "We're a Band of Brothers", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Downes",
+            location = "Taranis", prerequisites = "Complete The Private Store, then approach the main mages' building where Downes challenges you.",
+            summary = "After The Private Store approach Downes at the mages' main entrance.", walkthroughSteps = listOf("After The Private Store approach Downes at the mages' main entrance.", "Choose to hand over six Magic Crystals for two positive Soul points, or refuse and duel Downes.", "If fighting, knock Downes unconscious without attacking watching guards."),
+            reward = "300 Glory only for beating Downes; alternatively 2 positive Soul points for handing over six Magic Crystals.", warnings = "",
+            searchTags = listOf("Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-157", chapter = 2, playOrder = 157,
+            title = "Gnome in the Hole", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Abbas",
+            location = "Taranis", prerequisites = "Complete The Missing Gnome by locating Lami, then speak to Abbas in the gnome area of the Mages Camp.",
+            summary = "Speak with Abbas after locating Lami during The Missing Gnome.", walkthroughSteps = listOf("Speak with Abbas after locating Lami during The Missing Gnome.", "Return to Lami in the caves beneath the Mages Camp, via the well or mages' basement.", "Hear Lami's decision to remain in the cave, then inform Abbas."),
+            reward = "100 Glory and a Magic Crystal.", warnings = "",
+            searchTags = listOf("Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-158", chapter = 2, playOrder = 158,
+            title = "John's Treasure", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Automatic: Faded Diary",
+            location = "Calador / Taranis", prerequisites = "Read the Faded Diary inside a western Taranis cave near the Demon Hunter Sharp.",
+            summary = "Find the Faded Diary in the western Taranis cave visited during From Days of Yore.", walkthroughSteps = listOf("Find the Faded Diary in the western Taranis cave visited during From Days of Yore.", "Read the diary to reveal John's buried treasure on Calador.", "Sail to Calador, enter the western castle ruins near the Shadow Lord and Grimoire.", "Use a shovel on the red X and collect the Ruby and Ornamental Belt legendary item."),
+            reward = "100 Glory; Ruby and Ornamental Belt legendary item.", warnings = "",
+            searchTags = listOf("Recovered original journal quest"),
+        ),
+        Quest(
+            id = "R3-C2-159", chapter = 2, playOrder = 159,
+            title = "On the Warpath", aliases = listOf(),
+            category = "SIDE QUEST — SOURCE-VERIFIED RECOVERY", giver = "Hirutu",
+            location = "Kila", prerequisites = "Reach the Natives Village and ask chieftain Hirutu about the planned attack on the pirates.",
+            summary = "Speak to Hirutu and agree to seek a peaceful solution to the invasion.", walkthroughSteps = listOf("Speak to Hirutu and agree to seek a peaceful solution to the invasion.", "Ask Tenya about the plan; take Makoto's hair from his bed and bring it to Tenya for a voodoo doll.", "Stand near Makoto, activate the doll and control him.", "As Makoto, speak with Tenya, Kamil and Bahati to gather support.", "Present their arguments to Hirutu, then return to the hero's body and collect the reward."),
+            reward = "1660 Glory and 800 Gold.", warnings = "Peaceful resolution uses voodoo; account for differing roleplay choices.",
+            searchTags = listOf("Recovered original journal quest"),
         )
         ))
     }

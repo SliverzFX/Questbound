@@ -1,5 +1,7 @@
 package com.sliverzfx.gothicquest
 
+import android.content.ClipData
+
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -34,6 +36,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -47,13 +50,14 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.ClipEntry
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.launch
 
 @Composable
 internal fun GothicReferenceScreen(section: ToolSection, onBack: () -> Unit, onHome: () -> Unit,
@@ -79,7 +83,8 @@ internal fun GothicReferenceScreen(section: ToolSection, onBack: () -> Unit, onH
         keyboard?.hide()
     }
     BackHandler(enabled = !embedded || searchVisible) { if (searchVisible) closeSearch() else onBack() }
-    val clipboard = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
+    val clipboardScope = rememberCoroutineScope()
     val allCards = remember(game, section) {
         game.toolReferenceCards(section)
     }
@@ -197,8 +202,10 @@ internal fun GothicReferenceScreen(section: ToolSection, onBack: () -> Unit, onH
                             if (codesSection) ToolFavoriteButton(game, entry)
                             entry.command?.let { command ->
                                 TextButton(onClick = {
-                                    clipboard.setText(AnnotatedString(command))
-                                    copiedId = entry.id
+                                    clipboardScope.launch {
+                                        clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("Console command", command)))
+                                        copiedId = entry.id
+                                    }
                                 }, modifier = Modifier.heightIn(min = 48.dp)
                                     .testTag("tool_copy_${entry.id}")) {
                                     Text(if (copiedId == entry.id && selectedEntryId == null) "COPIED" else "COPY",
@@ -217,8 +224,10 @@ internal fun GothicReferenceScreen(section: ToolSection, onBack: () -> Unit, onH
                                 Text(command, color = gold, fontSize = 13.sp,
                                     fontFamily = FontFamily.Monospace, modifier = Modifier.weight(1f))
                                 TextButton(onClick = {
-                                    clipboard.setText(AnnotatedString(command))
-                                    copiedId = entry.id
+                                    clipboardScope.launch {
+                                        clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("Console command", command)))
+                                        copiedId = entry.id
+                                    }
                                 }, modifier = Modifier.heightIn(min = 48.dp).testTag("tool_copy_${entry.id}")) {
                                     Text(if (copiedId == entry.id && selectedEntryId == null) "COPIED" else "COPY",
                                         color = gold, fontSize = 14.sp)
@@ -264,7 +273,8 @@ internal fun ToolReferenceDetailDialog(
     val gold = palette.accent
     val body = palette.body
     val entry = card.entry
-    val clipboard = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
+    val clipboardScope = rememberCoroutineScope()
     var copied by remember(card.entry.id, game) { mutableStateOf(false) }
     Dialog(onDismissRequest = onClose,
         properties = DialogProperties(usePlatformDefaultWidth = false)) {
@@ -292,7 +302,10 @@ internal fun ToolReferenceDetailDialog(
                     Text(command, color = gold, fontSize = 14.sp, fontFamily = FontFamily.Monospace,
                         modifier = Modifier.weight(1f))
                     TextButton(onClick = {
-                        clipboard.setText(AnnotatedString(command)); copied = true
+                        clipboardScope.launch {
+                            clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("Console command", command)))
+                            copied = true
+                        }
                     }, modifier = Modifier.heightIn(min = 48.dp).testTag("tool_detail_copy")) {
                         Text(if (copied) "COPIED" else "COPY", color = gold, fontSize = 14.sp)
                     }

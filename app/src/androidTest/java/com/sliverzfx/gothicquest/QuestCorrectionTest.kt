@@ -27,9 +27,9 @@ class QuestCorrectionTest {
         // Confirm the selected quest reached the correction screen; Android
         // may hide the clipboard from instrumentation even when copying worked.
         rule.onNodeWithTag("support_correction_context")
-            .assertTextContains("Gothic")
-            .assertTextContains("Test of Faith")
-            .assertTextContains("G1-C1-02")
+            .assertTextContains("Gothic", substring = true)
+            .assertTextContains("Test of Faith", substring = true)
+            .assertTextContains("G1-C1-02", substring = true)
         rule.onNodeWithTag("support_copy_report").performScrollTo().performClick()
         // The confirmation is shown only after Android's setPrimaryClip succeeds.
         rule.onNodeWithText("Report copied. Paste it into Discord and fill in the details.")

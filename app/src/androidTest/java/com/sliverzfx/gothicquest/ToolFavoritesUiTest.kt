@@ -4,9 +4,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ClipboardManager
-import androidx.compose.ui.platform.LocalClipboardManager
-import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.platform.Clipboard
+import androidx.compose.ui.platform.ClipEntry
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import org.junit.Assert.*
@@ -23,15 +23,17 @@ class ToolFavoritesUiTest {
         // Android 10+ can refuse clipboard reads by instrumentation even after a
         // successful write. Inject a recorder so this checks the command copied
         // by the actual detail button, not the emulator's clipboard visibility.
-        val recordingClipboard = object : ClipboardManager {
-            override fun getText(): AnnotatedString? = copiedCommand?.let { AnnotatedString(it) }
-            override fun setText(annotatedString: AnnotatedString) {
-                copiedCommand = annotatedString.text
+        val recordingClipboard = object : Clipboard {
+            private var latestEntry: ClipEntry? = null
+            override suspend fun getClipEntry(): ClipEntry? = latestEntry
+            override suspend fun setClipEntry(clipEntry: ClipEntry?) {
+                latestEntry = clipEntry
+                copiedCommand = clipEntry?.clipData?.getItemAt(0)?.text?.toString()
             }
         }
         rule.setContent {
             CompositionLocalProvider(
-                LocalClipboardManager provides recordingClipboard,
+                LocalClipboard provides recordingClipboard,
                 LocalToolFavoriteKeys provides keys,
                 LocalToggleToolFavorite provides { game, id ->
                     val key = toolFavoriteKey(game, id)

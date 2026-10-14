@@ -24,7 +24,7 @@ class ToolFavoritesUiTest {
         // successful write. Inject a recorder so this checks the command copied
         // by the actual detail button, not the emulator's clipboard visibility.
         val recordingClipboard = object : ClipboardManager {
-            override fun getText(): AnnotatedString? = copiedCommand?.let(::AnnotatedString)
+            override fun getText(): AnnotatedString? = copiedCommand?.let { AnnotatedString(it) }
             override fun setText(annotatedString: AnnotatedString) {
                 copiedCommand = annotatedString.text
             }

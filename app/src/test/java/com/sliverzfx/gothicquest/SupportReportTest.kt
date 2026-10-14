@@ -35,4 +35,18 @@ class SupportReportTest {
         assertFalse(report.contains("Quest ID:"))
         assertFalse(report.contains("Suggested correction:"))
     }
+    @Test
+    fun gothicCorrectionMatchesTheQuestSelectedInTheAndroidNavigationTest() {
+        val report = buildSupportReport(
+            "0.1.0", "Test phone", "15",
+            QuestCorrectionContext("Gothic", "CHAPTER", 1, "Test of Faith", "G1-C1-02")
+        )
+        assertTrue(report.contains("Game / mod: Gothic"))
+        assertTrue(report.contains("CHAPTER: 1"))
+        assertTrue(report.contains("Quest: Test of Faith"))
+        assertTrue(report.contains("Quest ID: G1-C1-02"))
+        assertTrue(report.contains("Questbound — Quest correction"))
+        assertFalse(report.contains("Game / mod and version:"))
+    }
+
 }

@@ -89,7 +89,6 @@
 - Modify: `app/src/main/java/com/sliverzfx/gothicquest/AppRoute.kt`
 - Modify: `app/src/main/java/com/sliverzfx/gothicquest/GameGuidePalette.kt`
 - Modify: `app/src/main/java/com/sliverzfx/gothicquest/GothicQuestAppV2.kt`
-- Modify: `app/src/main/java/com/sliverzfx/gothicquest/HomeScreen.kt`
 - Create: `app/src/main/java/com/sliverzfx/gothicquest/GothicRemakeQuestData.kt`
 - Create: `app/src/main/java/com/sliverzfx/gothicquest/GothicRemakeChapter1Data.kt` through `GothicRemakeChapter6Data.kt`
 - Create: `app/src/main/java/com/sliverzfx/gothicquest/GothicRemakeGuideNotes.kt`
@@ -102,9 +101,9 @@
 - Produces: `GothicRemakeQuestData.chapter(number): List<Quest>` sorted by `playOrder`.
 - Consumes: `Quest`, `ChapterGuideNote`, existing Gothic menu artwork, game hub, progress, search, favorites, and resume behavior.
 
-- [ ] **Step 1: Add failing route and catalog tests** for persisted-name separation, six chapter routing, empty/invalid chapter behavior, and uniqueness/required quest fields for the initial catalog skeleton.
+- [ ] **Step 1: Add failing route and catalog tests** for persisted-name separation, six-chapter routing, empty/invalid chapter behavior, and uniqueness/required quest fields for the initial catalog skeleton.
 - [ ] **Step 2: Run** `./gradlew testDebugUnitTest --tests '*AppRouteTest' --tests '*GothicRemakeQuestDataTest'`; confirm the new GameId and catalog are absent.
-- [ ] **Step 3: Add the remake GameId to all exhaustive mappings** (quests, chapter quests, section count/label, palette, background/logo fallbacks, chapter notes, reference-entry classification if needed, and home menu callback). Route the existing **GOTHIC 1 REMAKE** card button to `AppRoute.GameHub(GameId.GOTHIC_1_REMAKE)`.
+- [ ] **Step 3: Add the remake GameId to all exhaustive mappings** (quests, chapter quests, section count/label, palette, background/logo fallbacks, chapter notes, and home menu callback). Route the existing **GOTHIC 1 REMAKE** card button to `AppRoute.GameHub(GameId.GOTHIC_1_REMAKE)`.
 - [ ] **Step 4: Implement six ordered chapter data sources** and remake note lookup using stable IDs prefixed `G1R-`; do not share Gothic 1 IDs or completion state.
 - [ ] **Step 5: Run** `./gradlew testDebugUnitTest --tests '*AppRouteTest' --tests '*GothicRemakeQuestDataTest'`; confirm route, catalog shape, progress-key separation, and note placement.
 - [ ] **Step 6: Run** `./gradlew compileDebugKotlin compileDebugAndroidTestKotlin`; confirm exhaustive routing and Compose UI compile.
@@ -137,9 +136,9 @@
 
 **Interfaces:**
 - Consumes: all shared note lookups, five Gothic guide coverages, remake hub, and game ID.
-- Produces: UI coverage for opening the remake from the Gothic 1 menu card and seeing a note in a chapter screen; route/back navigation and old saved-route tests stay valid.
+- Produces: UI coverage for opening the remake from the Gothic 1 menu card and seeing a note in a chapter screen; search, favorites, completion, Continue/Recent, back navigation, and old saved-route behavior stay valid.
 
-- [ ] **Step 1: Write failing UI assertions** for selecting the remake button, opening its distinct six-chapter hub, and showing chapter guidance in the selected chapter.
+- [ ] **Step 1: Write failing UI assertions** for selecting the remake button, opening its distinct six-chapter hub, and showing chapter guidance in the selected chapter; add navigation checks for favorites, search, Continue/Recent, and return-to-menu.
 - [ ] **Step 2: Run** `./gradlew compileDebugAndroidTestKotlin`; confirm the new assertions expose any missing test tags or route integration.
 - [ ] **Step 3: Add only the UI hooks needed** for stable selection and note visibility assertions; preserve Gothic 1 routing and all existing game card behavior.
 - [ ] **Step 4: Run the required verification:** `./gradlew testDebugUnitTest compileDebugAndroidTestKotlin assembleDebug`, then the repository's emulator UI-test workflow. Confirm GitHub Actions reports unit tests, UI-test compilation, debug APK, and emulator UI tests passing.

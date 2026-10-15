@@ -1099,7 +1099,7 @@ private fun NavChapterQuestListScreen(
             Spacer(Modifier.height(4.dp))
             Text("${game.displayTitle} — ${game.sectionLabel} $chapter", color = LocalGameGuidePalette.current.accent, fontSize = (25f * tabletScale).sp, fontWeight = FontWeight.Bold)
             Text(
-                if (game == GameId.GOTHIC_3 || game == GameId.RISEN) "$visibleCount / ${journalQuests.size} QUESTS • ${referenceGuides.size} REFERENCE GUIDES"
+                if (game == GameId.GOTHIC_3 || game == GameId.RISEN || referenceGuides.isNotEmpty()) "$visibleCount / ${journalQuests.size} QUESTS • ${referenceGuides.size} REFERENCE GUIDES"
                 else if (game == GameId.RISEN_2) "$visibleCount / ${journalQuests.size} QUESTS VISIBLE • ALL ROUTES"
                 else if (visibleCount == quests.size) "${quests.size} QUESTS • CHRONOLOGICAL ORDER"
                 else "$visibleCount / ${quests.size} QUESTS VISIBLE • CHRONOLOGICAL ORDER",
@@ -1506,7 +1506,7 @@ private fun NavAllQuestsScreen(
         Spacer(Modifier.height(4.dp))
         Text("${game.displayTitle} — ALL QUESTS", color = LocalGameGuidePalette.current.accent, fontSize = 25.sp, fontWeight = FontWeight.Bold)
         Text(
-            if (game == GameId.GOTHIC_3 || game == GameId.RISEN) "${sorted.count { !isReferenceQuest(game, it) }} QUESTS • ${sorted.count { isReferenceQuest(game, it) }} REFERENCE GUIDES"
+            if (game == GameId.GOTHIC_3 || game == GameId.RISEN || firstGuideIndex >= 0) "${sorted.count { !isReferenceQuest(game, it) }} QUESTS • ${sorted.count { isReferenceQuest(game, it) }} REFERENCE GUIDES"
             else "${sorted.size} QUESTS • CHRONOLOGICAL BY ${game.sectionLabel}",
             color = LocalGameGuidePalette.current.muted, fontSize = 12.sp
         )

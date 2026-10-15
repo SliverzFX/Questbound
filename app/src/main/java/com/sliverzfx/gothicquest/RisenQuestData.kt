@@ -42,5 +42,6 @@ internal object RisenQuestData {
 internal fun isReferenceQuest(game: GameId, quest: Quest): Boolean = when (game) {
     GameId.GOTHIC_3 -> Gothic3QuestData.isGuideEntry(quest)
     GameId.RISEN -> RisenQuestData.isGuideEntry(quest)
+    GameId.RISEN_3 -> quest.id in setOf("R3-C2-092", "R3-C2-152")
     else -> false
 }

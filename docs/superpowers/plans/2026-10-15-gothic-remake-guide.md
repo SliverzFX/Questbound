@@ -38,7 +38,7 @@
 - Create `app/src/main/java/com/sliverzfx/gothicquest/GothicGuideNotes.kt`: notes for Gothic 1, Gothic II Gold, New Balance, and Gothic 3.
 - Modify `app/src/main/java/com/sliverzfx/gothicquest/AppRoute.kt`: add remake GameId routing, quest lookup, chapter lookup, section count, and labels.
 - Modify `app/src/main/java/com/sliverzfx/gothicquest/GameGuidePalette.kt`: give the remake a palette consistent with the Gothic family.
-- Modify `app/src/main/java/com/sliverzfx/gothicquest/GothicQuestAppV2.kt` and `HomeScreen.kt`: open the existing remake menu button into its distinct game hub and include remake note lookup.
+- Modify `app/src/main/java/com/sliverzfx/gothicquest/GothicQuestAppV2.kt`: open the existing remake menu button into its distinct game hub and include remake note lookup.
 - Create `app/src/main/java/com/sliverzfx/gothicquest/GothicRemakeQuestData.kt` and six chapter data files `GothicRemakeChapter1Data.kt` through `GothicRemakeChapter6Data.kt`: ordered journal quests and section access.
 - Create `app/src/main/java/com/sliverzfx/gothicquest/GothicRemakeGuideNotes.kt`: remake-specific chapter guidance.
 - Create `docs/sources/gothic-remake-quest-sources.md`: per-quest evidence ledger, uncertainty notes, and reconciliation notes.
@@ -139,7 +139,7 @@
 - Produces: UI coverage for opening the remake from the Gothic 1 menu card and seeing a note in a chapter screen; search, favorites, completion, Continue/Recent, back navigation, and old saved-route behavior stay valid.
 
 - [ ] **Step 1: Write failing UI assertions** for selecting the remake button, opening its distinct six-chapter hub, and showing chapter guidance in the selected chapter; add navigation checks for favorites, search, Continue/Recent, and return-to-menu.
-- [ ] **Step 2: Run** `./gradlew compileDebugAndroidTestKotlin`; confirm the new assertions expose any missing test tags or route integration.
+- [ ] **Step 2: Run the focused emulator UI tests** for the affected screen and confirm they fail on the missing remake route or note rendering before implementation.
 - [ ] **Step 3: Add only the UI hooks needed** for stable selection and note visibility assertions; preserve Gothic 1 routing and all existing game card behavior.
 - [ ] **Step 4: Run the required verification:** `./gradlew testDebugUnitTest compileDebugAndroidTestKotlin assembleDebug`, then the repository's emulator UI-test workflow. Confirm GitHub Actions reports unit tests, UI-test compilation, debug APK, and emulator UI tests passing.
 - [ ] **Step 5: Commit** as `test: cover Gothic Remake and chapter notes`.

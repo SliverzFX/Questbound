@@ -8,6 +8,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.performTextReplacement
@@ -53,7 +54,7 @@ class QuestGuidesLibraryTest {
         composeRule.onNodeWithTag("game_tab_tips").assertExists()
         composeRule.onNodeWithTag("chapter_button_1").performClick()
         composeRule.onNodeWithText("Before choosing a camp").assertExists()
-        composeRule.onNodeWithText("‹  BACK TO CHAPTERS").performClick()
+        composeRule.onAllNodesWithText("‹  BACK TO CHAPTERS").onFirst().performClick()
         composeRule.onNodeWithText("‹  BACK TO GAMES").performClick()
         composeRule.onNodeWithTag("game_library_screen").assertExists()
     }
@@ -65,7 +66,8 @@ class QuestGuidesLibraryTest {
         composeRule.onNodeWithTag("game_gothic_remake").performClick()
         composeRule.onNodeWithText("SEARCH").performScrollTo().performClick()
         composeRule.onNodeWithTag("quest_search_field").performTextInput("A Few Drops Too Much")
-        composeRule.onNodeWithText("A Few Drops Too Much", substring = true).performScrollTo().performClick()
+        // The query field contains the title too; select the result by its unique quest ID.
+        composeRule.onNodeWithText("CHAPTER 1  •  G1R-C1-001", substring = true).performScrollTo().performClick()
         composeRule.onNodeWithTag("quest_favorite_toggle").performClick()
         composeRule.onNodeWithTag("quest_completed_toggle").performClick()
         composeRule.onNodeWithTag("quest_favorite_toggle").assertTextContains("★")

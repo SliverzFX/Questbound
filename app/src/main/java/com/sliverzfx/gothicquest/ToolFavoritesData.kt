@@ -18,14 +18,14 @@ internal fun toolFavoriteKey(game: GameId, entryId: String): String = "${game.sa
 internal fun GameId.toolReferenceCards(section: ToolSection): List<ToolReferenceCard> {
     fun entries(requested: ToolSection): List<ToolReferenceEntry> = when (this) {
         GameId.GOTHIC -> GothicToolsData.entries(requested)
-        GameId.GOTHIC_1_REMAKE -> emptyList()
+        GameId.GOTHIC_1_REMAKE -> GothicRemakeToolsData.entries(requested)
         GameId.GOTHIC_2_GOLD -> Gothic2ToolsData.entries(requested)
         GameId.ARCHOLOS -> ArcholosToolsData.entries(requested)
         GameId.GOTHIC_3 -> Gothic3ToolsData.entries(requested)
         GameId.RISEN -> RisenToolsData.entries(requested)
         GameId.RISEN_2 -> Risen2ToolsData.entries(requested)
         GameId.RISEN_3 -> Risen3ToolsData.entries(requested)
-        GameId.NEW_BALANCE -> emptyList()
+        GameId.NEW_BALANCE -> NewBalanceToolsData.entries(requested)
     }
     return if (section == ToolSection.USEFUL_TIPS)
         entries(section).map { ToolReferenceCard(it, setOf(it.source)) }

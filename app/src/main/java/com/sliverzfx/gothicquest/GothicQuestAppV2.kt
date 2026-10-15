@@ -389,7 +389,8 @@ private fun GothicQuestAppContent(
                 is AppRoute.ToolGames -> GameLibraryScreen(
                     title = currentRoute.section.title,
                     entries = questGuideLibraryEntries(
-                        onGameSelected = { route = AppRoute.ToolReference(currentRoute.section, it) }
+                        onGameSelected = { route = AppRoute.ToolReference(currentRoute.section, it) },
+                        onPreviewSelected = { route = AppRoute.ToolReference(currentRoute.section, GameId.GOTHIC_1_REMAKE) }
                     ),
                     onBack = { route = AppRoute.GameTools },
                     topRightActionLabel = "HOME",
@@ -845,11 +846,7 @@ private fun NavGameHubScreen(
                         .height(if (compactTablet) 42.dp else if (tabletLandscape) 70.dp * tabletScale else 70.dp),
                     contentScale = ContentScale.Fit)
                 Spacer(Modifier.height(if (compactTablet) 2.dp else 8.dp * tabletScale))
-                val gameTabs = if (game == GameId.GOTHIC_1_REMAKE) {
-                    listOf("quests" to "QUESTS")
-                } else {
-                    listOf("quests" to "QUESTS", "codes" to "CODES", "tips" to "TIPS")
-                }
+                val gameTabs = listOf("quests" to "QUESTS", "codes" to "CODES", "tips" to "TIPS")
                 Row(Modifier.fillMaxWidth().selectableGroup()) {
                     gameTabs.forEach { (key, label) ->
                             Box(Modifier.weight(1f).heightIn(min = if (tabletLandscape) maxOf(48.dp, 52.dp * tabletScale) else 48.dp)

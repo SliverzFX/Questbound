@@ -117,7 +117,11 @@ internal fun GothicReferenceScreen(section: ToolSection, onBack: () -> Unit, onH
         }
         if (!embedded) Text(game.persistedName, color = body, fontSize = 18.sp)
         Spacer(Modifier.height(if (compactTablet) 1.dp else 6.dp))
-        Text(if (game == GameId.ARCHOLOS) {
+        Text(if (game == GameId.GOTHIC_1_REMAKE) {
+            if (codesSection) GothicRemakeToolsData.sourceNote else "Gothic 1 Remake • normal gameplay"
+        } else if (game == GameId.NEW_BALANCE) {
+            if (codesSection) NewBalanceToolsData.sourceNote else "New Balance • normal gameplay / version dependent"
+        } else if (game == GameId.ARCHOLOS) {
             "Archolos • stat source v${ArcholosToolsData.sourceVersion}"
         } else if (game == GameId.GOTHIC_3) {
             Gothic3ToolsData.sourceNote

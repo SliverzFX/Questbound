@@ -13,7 +13,7 @@ internal object ArcholosQuestData {
         addAll(ArcholosChapter6Part1Data.quests)
     }
 
-    private val guideNotes: List<RisenGuideNote> = listOf(
+    private val guideNotes: List<ChapterGuideNote> = listOf(
         RisenGuideNote(1, 1, "Chapter guide", listOf("This edition replaces the earlier compact summary. Every main/guild quest is separated into actionable steps, and regional side quests are treated as real walkthrough entries instead of checklist bullets. Mutually exclusive City Guard and Merchants’ Guild routes are both included for app coverage.", "Recommended method: make a permanent save before joining a guild and before choosing an apprenticeship. Finish chapter-sensitive side quests before advancing the main story when a warning appears.", "Archolos regional quests have been assigned to their verified chapter where established, while existing quest IDs are preserved for saved progress. A few side quests still span several chapters. City Guard, Merchants’ Guild and Royal Envoy missions are mutually exclusive alternatives, not one-playthrough requirements.")),
         RisenGuideNote(1, 1, "CHAPTER 1 — WELCOME TO ARCHOLOS", listOf()),
         RisenGuideNote(1, 10, "SILBACH & LURKER’S COAST", listOf("Regional side quests — chapters 1–3. Placement is for browsing, not an exclusive availability window.")),
@@ -59,6 +59,6 @@ internal object ArcholosQuestData {
     fun chapter(number: Int): List<Quest> =
         quests.filter { it.chapter == number }.sortedBy { it.playOrder }
 
-    fun notes(chapter: Int): List<RisenGuideNote> =
+    fun notes(chapter: Int): List<ChapterGuideNote> =
         guideNotes.filter { it.chapter == chapter }
 }

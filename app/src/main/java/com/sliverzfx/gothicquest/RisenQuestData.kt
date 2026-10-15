@@ -1,6 +1,8 @@
 package com.sliverzfx.gothicquest
 
-internal data class RisenGuideNote(
+internal typealias RisenGuideNote = ChapterGuideNote
+
+internal data class ChapterGuideNote(
     val chapter: Int,
     val beforeQuestOrder: Int,
     val title: String,
@@ -26,7 +28,7 @@ internal object RisenQuestData {
         addAll(RisenGuidePart15Data.quests)
     }
 
-    private val guideNotes: List<RisenGuideNote> = buildList {
+    private val guideNotes: List<ChapterGuideNote> = buildList {
         addAll(RisenGuidePart1Data.notes)
         addAll(RisenGuidePart2Data.notes)
         addAll(RisenGuidePart3Data.notes)
@@ -42,7 +44,7 @@ internal object RisenQuestData {
     fun chapter(number: Int): List<Quest> =
         quests.filter { it.chapter == number }.sortedBy { it.playOrder }
 
-    fun notes(chapter: Int): List<RisenGuideNote> =
+    fun notes(chapter: Int): List<ChapterGuideNote> =
         guideNotes.filter { it.chapter == chapter }
 }
 

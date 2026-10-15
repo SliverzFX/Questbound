@@ -8,7 +8,7 @@ internal object Risen3QuestData {
         addAll(Risen3Chapter4Data.quests)
     }
 
-    private val guideNotes: List<RisenGuideNote> = buildList {
+    private val guideNotes: List<ChapterGuideNote> = buildList {
         addAll(Risen3Chapter1Data.notes)
         addAll(Risen3Chapter2Data.notes)
         addAll(Risen3Chapter3Data.notes)
@@ -18,6 +18,6 @@ internal object Risen3QuestData {
     fun chapter(number: Int): List<Quest> =
         quests.filter { it.chapter == number }.sortedBy { it.playOrder }
 
-    fun notes(chapter: Int): List<RisenGuideNote> =
+    fun notes(chapter: Int): List<ChapterGuideNote> =
         guideNotes.filter { it.chapter == chapter }
 }

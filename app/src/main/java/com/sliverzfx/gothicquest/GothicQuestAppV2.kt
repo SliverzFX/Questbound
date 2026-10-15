@@ -1118,18 +1118,12 @@ private fun NavChapterQuestListScreen(
                     color = LocalGameGuidePalette.current.body, fontSize = 14.sp)
                 Spacer(Modifier.height(18.dp))
             }
-            val guideNotes = when (game) {
-                GameId.RISEN -> RisenQuestData.notes(chapter)
-                GameId.RISEN_2 -> Risen2QuestData.notes(chapter)
-                GameId.RISEN_3 -> Risen3QuestData.notes(chapter)
-                GameId.ARCHOLOS -> ArcholosQuestData.notes(chapter)
-                else -> emptyList()
-            }
+            val guideNotes = game.chapterGuideNotes(chapter)
             val notesByOrder = guideNotes.groupBy { it.beforeQuestOrder }
             val orderedEntries = journalQuests + referenceGuides
             orderedEntries.forEachIndexed { index, quest ->
                 notesByOrder[quest.playOrder].orEmpty().forEach { note ->
-                    NavRisenGuideNote(game, note)
+                    NavChapterGuideNote(game, note)
                 }
                 val isReference = isReferenceQuest(game, quest)
                 if (isReference && referenceGuides.firstOrNull()?.id == quest.id) {
@@ -1144,7 +1138,7 @@ private fun NavChapterQuestListScreen(
                 }
             }
             notesByOrder[quests.size + 1].orEmpty().forEach { note ->
-                NavRisenGuideNote(game, note)
+                NavChapterGuideNote(game, note)
             }
             NavBackText("‹  BACK TO ${game.sectionLabel}S", onBack)
         }
@@ -1152,7 +1146,7 @@ private fun NavChapterQuestListScreen(
 }
 
 @Composable
-private fun NavRisenGuideNote(game: GameId, note: RisenGuideNote) {
+private fun NavChapterGuideNote(game: GameId, note: ChapterGuideNote) {
     if (note.paragraphs.isEmpty()) {
         Text(note.title, color = LocalGameGuidePalette.current.accent, fontSize = 16.sp, fontWeight = FontWeight.Bold)
     } else {

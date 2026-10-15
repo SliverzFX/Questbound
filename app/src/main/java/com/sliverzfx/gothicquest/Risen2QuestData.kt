@@ -22,7 +22,7 @@ internal object Risen2QuestData {
         addAll(Risen2GuidePart18Data.quests)
     }
 
-    private val guideNotes: List<RisenGuideNote> = buildList {
+    private val guideNotes: List<ChapterGuideNote> = buildList {
         addAll(Risen2GuidePart1Data.notes)
         addAll(Risen2GuidePart2Data.notes)
         addAll(Risen2GuidePart3Data.notes)
@@ -36,6 +36,6 @@ internal object Risen2QuestData {
     fun chapter(number: Int): List<Quest> =
         quests.filter { it.chapter == number }.sortedBy { it.playOrder }
 
-    fun notes(chapter: Int): List<RisenGuideNote> =
+    fun notes(chapter: Int): List<ChapterGuideNote> =
         guideNotes.filter { it.chapter == chapter }
 }

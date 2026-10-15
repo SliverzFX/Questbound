@@ -19,8 +19,9 @@ internal object GothicRemakeQuestData {
             id = "G1R-C${chapter}-${order.toString().padStart(3, '0')}",
             chapter = chapter, playOrder = order, title = title, category = category, giver = giver,
             location = location, prerequisites = "See the journal entry and chapter guidance.", summary = summary,
-            walkthroughSteps = listOf(summary,
-                "Check the journal after each objective. If it requests a report, return to $giver."),
+            walkthroughSteps = summary.split(Regex("(?<=[.!?])\\s+|;\\s+"))
+                .map { it.trim() }.filter { it.isNotEmpty() } +
+                "Check the journal after each objective. If it requests a report, return to $giver.",
             reward = reward, warnings = warnings,
             searchTags = listOf("gothic remake", "chapter $chapter", giver.lowercase(), title.lowercase(), if (missionType) "main quest" else "side quest")
         )

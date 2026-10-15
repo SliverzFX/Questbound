@@ -617,33 +617,19 @@ private fun GothicQuestAppContent(
 private fun questGuideLibraryEntries(
     onGameSelected: (GameId) -> Unit,
     onPreviewSelected: (() -> Unit)? = null
-): List<GameLibraryEntry> = buildList {
-    add(
+): List<GameLibraryEntry> = listOf(
     GameLibraryEntry(
         id = "gothic",
         title = "Gothic",
         panelRes = R.drawable.gothic_button_1,
         logoRes = R.drawable.gothic_classic_logo,
         testTag = "game_gothic",
-        onClick = { onGameSelected(GameId.GOTHIC) }
-        )
-    )
-    onPreviewSelected?.let { onPreview ->
-        add(
-            GameLibraryEntry(
-                id = "gothic_remake",
-                title = "Gothic 1 Remake",
-                panelRes = R.drawable.gothic_button_1,
-                logoRes = null,
-                testTag = "game_gothic_remake",
-                onClick = onPreview,
-                displayLabel = "GOTHIC 1 REMAKE\nCOMING SOON"
-            )
-        )
-    }
-    addAll(
-        listOf(
-            GameLibraryEntry(
+        onClick = { onGameSelected(GameId.GOTHIC) },
+        secondaryActionLabel = onPreviewSelected?.let { "GOTHIC 1 REMAKE" },
+        secondaryActionTestTag = onPreviewSelected?.let { "game_gothic_remake" },
+        onSecondaryAction = onPreviewSelected
+    ),
+    GameLibraryEntry(
         id = "gothic_2_gold",
         title = "Gothic II Gold Edition",
         panelRes = R.drawable.gothic_button_2,
@@ -699,9 +685,7 @@ private fun questGuideLibraryEntries(
         testTag = "game_risen_3",
         onClick = { onGameSelected(GameId.RISEN_3) }
     )
-        )
-    )
-}
+)
 
 private fun loadResumeSnapshot(context: Context): ResumeSnapshot? {
     val prefs = context.getSharedPreferences("quest_prefs", Context.MODE_PRIVATE)

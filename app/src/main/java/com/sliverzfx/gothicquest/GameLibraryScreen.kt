@@ -64,7 +64,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -78,7 +77,9 @@ data class GameLibraryEntry(
     val logoRes: Int?,
     val testTag: String,
     val onClick: () -> Unit,
-    val displayLabel: String? = null
+    val secondaryActionLabel: String? = null,
+    val secondaryActionTestTag: String? = null,
+    val onSecondaryAction: (() -> Unit)? = null
 )
 
 @Composable
@@ -130,6 +131,7 @@ fun GameLibraryScreen(
                 .replace(Regex("\\bi\\b"), "1")
                 .replace(Regex("\\s+"), "")
             gameName.contains(search) || entry.id.lowercase().replace("_", "").contains(search) ||
+                (entry.secondaryActionLabel?.lowercase()?.replace(" ", "")?.contains(search) == true) ||
                 (entry.id == "gothic" && "gothic1".contains(search))
         }
     }
@@ -271,6 +273,7 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
         label = "gameLogoWidth"
     )
 
+    Column(Modifier.fillMaxWidth()) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -300,23 +303,6 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
                     )
                 )
         )
-        entry.displayLabel?.let { label ->
-            Box(
-                Modifier.fillMaxSize().background(Color(0x76000000)),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    label,
-                    color = Color(0xFFF0D9AE),
-                    fontSize = if (tabletLandscape) 22.sp else 20.sp,
-                    lineHeight = 25.sp,
-                    fontWeight = FontWeight.Bold,
-                    letterSpacing = 1.sp,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
-                )
-            }
-        }
         entry.logoRes?.let { logo ->
             // One decode and one bitmap shared by the logo and both shadow layers.
             val logoPainter = rememberLibraryImagePainter(logo,
@@ -355,6 +341,26 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
                 contentScale = ContentScale.Fit
             )
         }
+    }
+    entry.secondaryActionLabel?.let { label ->
+        entry.onSecondaryAction?.let { action ->
+            val shape = RoundedCornerShape(8.dp * tabletScale)
+            Box(
+                Modifier.fillMaxWidth().padding(top = 7.dp * tabletScale)
+                    .heightIn(min = 48.dp)
+                    .clip(shape)
+                    .background(Color(0xD916120D))
+                    .border(1.dp, LibraryGoldDark, shape)
+                    .clickable(onClick = action)
+                    .then(entry.secondaryActionTestTag?.let { Modifier.testTag(it) } ?: Modifier),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(label, color = Color(0xFFE4C487), fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold, letterSpacing = 0.7.sp,
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp))
+            }
+        }
+    }
     }
 }
 

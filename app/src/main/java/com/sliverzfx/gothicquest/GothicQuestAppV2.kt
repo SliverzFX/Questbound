@@ -617,19 +617,25 @@ private fun GothicQuestAppContent(
 private fun questGuideLibraryEntries(
     onGameSelected: (GameId) -> Unit,
     onPreviewSelected: (() -> Unit)? = null
-): List<GameLibraryEntry> = listOf(
+): List<GameLibraryEntry> = listOfNotNull(
     GameLibraryEntry(
         id = "gothic",
         title = "Gothic",
         panelRes = R.drawable.gothic_button_1,
         logoRes = R.drawable.gothic_classic_logo,
         testTag = "game_gothic",
-        onClick = { onGameSelected(GameId.GOTHIC) },
-        secondaryActionLabel = onPreviewSelected?.let { "GOTHIC 1 REMAKE" },
-        secondaryActionTestTag = onPreviewSelected?.let { "game_gothic_remake" },
-        secondaryActionImageRes = onPreviewSelected?.let { R.drawable.gothic_remake_button },
-        onSecondaryAction = onPreviewSelected
+        onClick = { onGameSelected(GameId.GOTHIC) }
     ),
+    onPreviewSelected?.let { onRemakeSelected ->
+        GameLibraryEntry(
+            id = "gothic_1_remake",
+            title = "Gothic 1 Remake",
+            panelRes = R.drawable.gothic_remake_button,
+            logoRes = null,
+            testTag = "game_gothic_remake",
+            onClick = onRemakeSelected
+        )
+    },
     GameLibraryEntry(
         id = "gothic_2_gold",
         title = "Gothic II Gold Edition",

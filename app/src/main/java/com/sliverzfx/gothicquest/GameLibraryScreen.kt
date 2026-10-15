@@ -342,6 +342,11 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
                 contentScale = ContentScale.Fit
             )
         }
+        if (entry.logoRes == null) {
+            Text(entry.title.uppercase(), color = Color(0xFFE4C487),
+                fontSize = 20.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.7.sp,
+                modifier = Modifier.padding(end = 14.dp * tabletScale, bottom = 12.dp * tabletScale))
+        }
     }
     entry.secondaryActionLabel?.let { label ->
         entry.onSecondaryAction?.let { action ->

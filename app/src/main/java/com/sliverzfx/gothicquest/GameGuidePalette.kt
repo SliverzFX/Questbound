@@ -27,6 +27,14 @@ private val gothicGuidePalette = GameGuidePalette(
     selected = Color(0xFF434C57), highlight = Color(0xFFF4F6F8), border = Color(0xFF78838F),
     track = Color(0xFF101419)
 )
+private val gothicRemakeGuidePalette = GameGuidePalette(
+    accent = Color(0xFFD8BDB0), body = Color(0xFFD4C7C1), reading = Color(0xFFF3E8E1),
+    muted = Color(0xFFB4A098), faint = Color(0xFF84756F), surface = Color(0xFF211A18),
+    selected = Color(0xFF60372F), highlight = Color(0xFFFFE6D9), border = Color(0xFFA66B5D),
+    track = Color(0xFF120E0D), secondaryAccent = Color(0xFFDF9E85),
+    backgroundColors = listOf(Color(0xFF392320), Color(0xFF211716), Color(0xFF100C0B)),
+    cardColors = listOf(Color(0xFF30201D), Color(0xFF55312B), Color(0xFF251916))
+)
 private val gothicGoldGuidePalette = GameGuidePalette(
     accent = Color(0xFFF1DFB0), body = Color(0xFFDBD0B9), reading = Color(0xFFF5EFDF),
     muted = Color(0xFFB8AA8C), faint = Color(0xFF8D8066), surface = Color(0xFF1E1A13),
@@ -86,6 +94,7 @@ private val risen3GuidePalette = GameGuidePalette(
 
 internal fun gameGuidePalette(game: GameId?): GameGuidePalette = when (game) {
     GameId.GOTHIC -> gothicGuidePalette
+    GameId.GOTHIC_1_REMAKE -> gothicRemakeGuidePalette
     GameId.GOTHIC_2_GOLD -> gothicGoldGuidePalette
     GameId.NEW_BALANCE -> newBalanceGuidePalette
     GameId.ARCHOLOS -> archolosGuidePalette

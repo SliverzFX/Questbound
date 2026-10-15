@@ -39,13 +39,17 @@ class QuestGuidesLibraryTest {
     }
 
     @Test
-    fun gothicRemakeOpensPlaceholderAndReturnsToGameList() {
+    fun gothicRemakeOpensItsOwnSixChapterGuideAndNotes() {
         waitForHome()
         composeRule.onNodeWithText("PICK A GAME").performClick()
         composeRule.onNodeWithTag("game_gothic_remake").performClick()
-        composeRule.onNodeWithTag("section_placeholder").assertExists()
-        composeRule.onNodeWithText("GOTHIC 1 REMAKE — COMING SOON").assertExists()
-        composeRule.onNodeWithTag("section_back").performClick()
+        composeRule.onNodeWithTag("game_hub_screen").assertExists()
+        composeRule.onNodeWithTag("chapter_button_1").assertExists()
+        composeRule.onNodeWithTag("chapter_button_6").assertExists()
+        composeRule.onNodeWithTag("chapter_button_1").performClick()
+        composeRule.onNodeWithText("Before choosing a camp").assertExists()
+        composeRule.onNodeWithText("‹  BACK TO CHAPTERS").performClick()
+        composeRule.onNodeWithText("‹  BACK TO GAMES").performClick()
         composeRule.onNodeWithTag("game_library_screen").assertExists()
     }
 

@@ -3,6 +3,7 @@ package com.sliverzfx.gothicquest
 internal val GameId.savedKeyPrefix: String
     get() = when (this) {
         GameId.GOTHIC -> "G1"
+        GameId.GOTHIC_1_REMAKE -> "G1R"
         GameId.GOTHIC_2_GOLD -> "G2"
         GameId.NEW_BALANCE -> "NB"
         GameId.GOTHIC_3 -> "G3"
@@ -17,6 +18,7 @@ internal fun toolFavoriteKey(game: GameId, entryId: String): String = "${game.sa
 internal fun GameId.toolReferenceCards(section: ToolSection): List<ToolReferenceCard> {
     fun entries(requested: ToolSection): List<ToolReferenceEntry> = when (this) {
         GameId.GOTHIC -> GothicToolsData.entries(requested)
+        GameId.GOTHIC_1_REMAKE -> emptyList()
         GameId.GOTHIC_2_GOLD -> Gothic2ToolsData.entries(requested)
         GameId.ARCHOLOS -> ArcholosToolsData.entries(requested)
         GameId.GOTHIC_3 -> Gothic3ToolsData.entries(requested)

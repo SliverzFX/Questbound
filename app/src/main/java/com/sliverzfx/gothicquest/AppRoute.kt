@@ -2,6 +2,7 @@ package com.sliverzfx.gothicquest
 
 enum class GameId(val persistedName: String, val displayTitle: String) {
     GOTHIC("Gothic", "GOTHIC"),
+    GOTHIC_1_REMAKE("Gothic 1 Remake", "GOTHIC 1 REMAKE"),
     GOTHIC_2_GOLD("Gothic II Gold Edition", "GOTHIC II"),
     NEW_BALANCE("Gothic II New Balance", "NEW BALANCE"),
     GOTHIC_3("Gothic 3", "GOTHIC 3"),
@@ -39,6 +40,7 @@ sealed interface AppRoute {
 
 internal fun GameId.quests(): List<Quest> = when (this) {
     GameId.GOTHIC -> GothicQuestData.quests
+    GameId.GOTHIC_1_REMAKE -> GothicRemakeQuestData.quests
     GameId.GOTHIC_2_GOLD -> Gothic2QuestData.quests
     GameId.NEW_BALANCE -> NewBalanceQuestData.quests
     GameId.GOTHIC_3 -> Gothic3QuestData.quests
@@ -50,6 +52,7 @@ internal fun GameId.quests(): List<Quest> = when (this) {
 
 internal fun GameId.chapterQuests(chapter: Int): List<Quest> = when (this) {
     GameId.GOTHIC -> GothicQuestData.chapter(chapter)
+    GameId.GOTHIC_1_REMAKE -> GothicRemakeQuestData.chapter(chapter)
     GameId.GOTHIC_2_GOLD -> Gothic2QuestData.chapter(chapter)
     GameId.NEW_BALANCE -> NewBalanceQuestData.chapter(chapter)
     GameId.GOTHIC_3 -> Gothic3QuestData.part(chapter)

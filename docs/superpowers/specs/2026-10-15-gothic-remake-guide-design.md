@@ -1,7 +1,7 @@
 # Gothic Remake Guide and Gothic Chapter Notes Design
 
 **Date:** 2026-10-15  
-**Status:** Conversational design approved; this written spec is awaiting Miha's review. No implementation is authorized until this spec is approved.
+**Status:** Design spec approved by Miha on 2026-10-15; implementation plan is awaiting review.
 
 ## Goal
 

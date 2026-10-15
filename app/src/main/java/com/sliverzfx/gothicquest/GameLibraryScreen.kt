@@ -64,6 +64,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -76,7 +77,8 @@ data class GameLibraryEntry(
     val panelRes: Int,
     val logoRes: Int?,
     val testTag: String,
-    val onClick: () -> Unit
+    val onClick: () -> Unit,
+    val displayLabel: String? = null
 )
 
 @Composable
@@ -298,6 +300,23 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
                     )
                 )
         )
+        entry.displayLabel?.let { label ->
+            Box(
+                Modifier.fillMaxSize().background(Color(0x76000000)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    label,
+                    color = Color(0xFFF0D9AE),
+                    fontSize = if (tabletLandscape) 22.sp else 20.sp,
+                    lineHeight = 25.sp,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
+                )
+            }
+        }
         entry.logoRes?.let { logo ->
             // One decode and one bitmap shared by the logo and both shadow layers.
             val logoPainter = rememberLibraryImagePainter(logo,

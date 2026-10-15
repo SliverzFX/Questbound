@@ -29,12 +29,24 @@ class QuestGuidesLibraryTest {
         composeRule.onNodeWithText("PICK A GAME").performClick()
         composeRule.onNodeWithTag("game_library_screen").assertExists()
         composeRule.onNodeWithTag("game_gothic").assertExists()
+        composeRule.onNodeWithTag("game_gothic_remake").assertExists()
         composeRule.onNodeWithTag("game_gothic_2").assertExists()
         composeRule.onNodeWithTag("game_new_balance").assertExists()
         composeRule.onNodeWithTag("library_game_list").performScrollToNode(hasTestTag("game_gothic_3"))
         composeRule.onNodeWithTag("game_gothic_3").assertExists()
         composeRule.onNodeWithTag("library_back").assertExists()
         composeRule.onNodeWithText("FAVORITES").assertExists()
+    }
+
+    @Test
+    fun gothicRemakeOpensPlaceholderAndReturnsToGameList() {
+        waitForHome()
+        composeRule.onNodeWithText("PICK A GAME").performClick()
+        composeRule.onNodeWithTag("game_gothic_remake").performClick()
+        composeRule.onNodeWithTag("section_placeholder").assertExists()
+        composeRule.onNodeWithText("GOTHIC 1 REMAKE — COMING SOON").assertExists()
+        composeRule.onNodeWithTag("section_back").performClick()
+        composeRule.onNodeWithTag("game_library_screen").assertExists()
     }
 
     @Test

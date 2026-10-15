@@ -371,7 +371,10 @@ private fun GothicQuestAppContent(
                     title = "PICK A GAME",
                     enableGameSearch = true,
                     entries = questGuideLibraryEntries(
-                        onGameSelected = { game -> route = AppRoute.GameHub(game) }
+                        onGameSelected = { game -> route = AppRoute.GameHub(game) },
+                        onPreviewSelected = {
+                            route = AppRoute.GamePreview("GOTHIC 1 REMAKE — COMING SOON")
+                        }
                     ),
                     onBack = { route = AppRoute.Home },
                     topRightActionLabel = "FAVORITES",
@@ -612,8 +615,10 @@ private fun GothicQuestAppContent(
 }
 
 private fun questGuideLibraryEntries(
-    onGameSelected: (GameId) -> Unit
-): List<GameLibraryEntry> = listOf(
+    onGameSelected: (GameId) -> Unit,
+    onPreviewSelected: (() -> Unit)? = null
+): List<GameLibraryEntry> = buildList {
+    add(
     GameLibraryEntry(
         id = "gothic",
         title = "Gothic",
@@ -621,8 +626,24 @@ private fun questGuideLibraryEntries(
         logoRes = R.drawable.gothic_classic_logo,
         testTag = "game_gothic",
         onClick = { onGameSelected(GameId.GOTHIC) }
-    ),
-    GameLibraryEntry(
+        )
+    )
+    onPreviewSelected?.let { onPreview ->
+        add(
+            GameLibraryEntry(
+                id = "gothic_remake",
+                title = "Gothic 1 Remake",
+                panelRes = R.drawable.gothic_button_1,
+                logoRes = null,
+                testTag = "game_gothic_remake",
+                onClick = onPreview,
+                displayLabel = "GOTHIC 1 REMAKE\nCOMING SOON"
+            )
+        )
+    }
+    addAll(
+        listOf(
+            GameLibraryEntry(
         id = "gothic_2_gold",
         title = "Gothic II Gold Edition",
         panelRes = R.drawable.gothic_button_2,
@@ -678,7 +699,9 @@ private fun questGuideLibraryEntries(
         testTag = "game_risen_3",
         onClick = { onGameSelected(GameId.RISEN_3) }
     )
-)
+        )
+    )
+}
 
 private fun loadResumeSnapshot(context: Context): ResumeSnapshot? {
     val prefs = context.getSharedPreferences("quest_prefs", Context.MODE_PRIVATE)

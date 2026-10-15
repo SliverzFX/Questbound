@@ -627,6 +627,7 @@ private fun questGuideLibraryEntries(
         onClick = { onGameSelected(GameId.GOTHIC) },
         secondaryActionLabel = onPreviewSelected?.let { "GOTHIC 1 REMAKE" },
         secondaryActionTestTag = onPreviewSelected?.let { "game_gothic_remake" },
+        secondaryActionImageRes = onPreviewSelected?.let { R.drawable.gothic_remake_button },
         onSecondaryAction = onPreviewSelected
     ),
     GameLibraryEntry(

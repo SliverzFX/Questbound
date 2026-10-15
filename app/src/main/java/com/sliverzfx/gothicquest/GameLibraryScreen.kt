@@ -79,6 +79,7 @@ data class GameLibraryEntry(
     val onClick: () -> Unit,
     val secondaryActionLabel: String? = null,
     val secondaryActionTestTag: String? = null,
+    val secondaryActionImageRes: Int? = null,
     val onSecondaryAction: (() -> Unit)? = null
 )
 
@@ -345,9 +346,12 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
     entry.secondaryActionLabel?.let { label ->
         entry.onSecondaryAction?.let { action ->
             val shape = RoundedCornerShape(8.dp * tabletScale)
+            val bannerRes = entry.secondaryActionImageRes
             Box(
                 Modifier.fillMaxWidth().padding(top = 7.dp * tabletScale)
-                    .heightIn(min = 48.dp)
+                    .height(if (bannerRes != null) {
+                        if (tabletLandscape) 104.dp * tabletScale else 86.dp
+                    } else 48.dp)
                     .clip(shape)
                     .background(Color(0xD916120D))
                     .border(1.dp, LibraryGoldDark, shape)
@@ -355,7 +359,30 @@ private fun GameLibraryPanel(entry: GameLibraryEntry, tabletLandscape: Boolean =
                     .then(entry.secondaryActionTestTag?.let { Modifier.testTag(it) } ?: Modifier),
                 contentAlignment = Alignment.Center
             ) {
-                Text(label, color = Color(0xFFE4C487), fontSize = 13.sp,
+                if (bannerRes != null) {
+                    Image(
+                        painter = rememberLibraryImagePainter(
+                            bannerRes,
+                            imageWidth,
+                            if (tabletLandscape) 104.dp * tabletScale else 86.dp,
+                            crop = true
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier.matchParentSize().testTag(
+                            entry.secondaryActionTestTag?.let { "${it}_banner" } ?: "game_banner"
+                        ),
+                        contentScale = ContentScale.Crop
+                    )
+                    Box(
+                        Modifier.matchParentSize().background(
+                            Brush.verticalGradient(
+                                listOf(Color(0x28000000), Color(0x99000000))
+                            )
+                        )
+                    )
+                }
+                Text(label, color = Color(0xFFE4C487),
+                    fontSize = if (bannerRes != null) 15.sp else 13.sp,
                     fontWeight = FontWeight.Bold, letterSpacing = 0.7.sp,
                     modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp))
             }

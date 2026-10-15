@@ -1,14 +1,5 @@
 package com.sliverzfx.gothicquest
 
-internal typealias RisenGuideNote = ChapterGuideNote
-
-internal data class ChapterGuideNote(
-    val chapter: Int,
-    val beforeQuestOrder: Int,
-    val title: String,
-    val paragraphs: List<String>
-)
-
 internal object RisenQuestData {
     val quests: List<Quest> = buildList {
         addAll(RisenGuidePart1Data.quests)

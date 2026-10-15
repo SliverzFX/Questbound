@@ -6,6 +6,36 @@ import org.junit.Test
 
 class ChapterGuideNoteTest {
     @Test
+    fun gothicChapterListsBeginWithAnOverviewBeforeTheirGuidanceNotes() {
+        val games = listOf(GameId.GOTHIC, GameId.GOTHIC_1_REMAKE, GameId.GOTHIC_2_GOLD,
+            GameId.NEW_BALANCE, GameId.GOTHIC_3)
+        for (game in games) {
+            for (chapter in 1..game.sectionCount) {
+                val notes = game.chapterGuideNotes(chapter)
+                val heading = if (game == GameId.GOTHIC_3) "Part guide" else "Chapter guide"
+                assertEquals("${game.name} section $chapter needs an opening overview", heading, notes.first().title)
+                assertEquals(1, notes.first().beforeQuestOrder)
+                assertTrue(notes.first().paragraphs.all { it.isNotBlank() })
+                assertTrue(notes.first().paragraphs.isNotEmpty())
+                assertEquals(1, notes.count { it.title == heading })
+                assertTrue("${game.name} section $chapter must retain its contextual guidance", notes.size > 1)
+            }
+        }
+    }
+
+    @Test
+    fun everyGameSectionHasAnOpeningDescription() {
+        GameId.entries.forEach { game ->
+            for (chapter in 1..game.sectionCount) {
+                assertTrue("${game.name} section $chapter needs an opening description",
+                    game.chapterGuideNotes(chapter).any {
+                        it.beforeQuestOrder == 1 && it.paragraphs.any(String::isNotBlank)
+                    })
+            }
+        }
+    }
+
+    @Test
     fun existingGothicGuidesHaveOpeningAndInterstitialOrClosingNotes() {
         val games = listOf(GameId.GOTHIC, GameId.GOTHIC_2_GOLD, GameId.NEW_BALANCE, GameId.GOTHIC_3)
         for (game in games) {

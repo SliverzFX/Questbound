@@ -631,7 +631,7 @@ private fun questGuideLibraryEntries(
             id = "gothic_1_remake",
             title = "Gothic 1 Remake",
             panelRes = R.drawable.gothic_remake_button,
-            logoRes = null,
+            logoRes = R.drawable.gothic_remake_logo,
             testTag = "game_gothic_remake",
             onClick = onRemakeSelected
         )
@@ -815,7 +815,7 @@ private fun NavGameHubScreen(
     val compactTablet = isCompactLandscapeTablet()
     val logoRes = when (game) {
         GameId.GOTHIC -> R.drawable.gothic_classic_logo
-        GameId.GOTHIC_1_REMAKE -> R.drawable.gothic_classic_logo
+        GameId.GOTHIC_1_REMAKE -> R.drawable.gothic_remake_logo
         GameId.GOTHIC_2_GOLD -> R.drawable.gothic_2_gold_logo
         GameId.NEW_BALANCE -> R.drawable.gothic_2_new_balance_logo
         GameId.GOTHIC_3 -> R.drawable.gothic_3_logo

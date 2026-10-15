@@ -1303,14 +1303,14 @@ private fun NavQuestDetailHeading(
                 if (isCompleted) "✓" else "○",
                 color = if (isCompleted) LocalGameGuidePalette.current.accent else LocalGameGuidePalette.current.muted,
                 fontSize = (30f * tabletScale).sp,
-                modifier = Modifier.clickable(onClick = onToggleCompleted).padding(6.dp)
+                modifier = Modifier.clickable(onClick = onToggleCompleted).padding(6.dp).testTag("quest_completed_toggle")
             )
         }
         Text(
             if (isFavorite) "★" else "☆",
             color = if (isFavorite) LocalGameGuidePalette.current.accent else LocalGameGuidePalette.current.muted,
             fontSize = (32f * tabletScale).sp,
-            modifier = Modifier.clickable(onClick = onToggleFavorite).padding(6.dp)
+            modifier = Modifier.clickable(onClick = onToggleFavorite).padding(6.dp).testTag("quest_favorite_toggle")
         )
     }
 }
@@ -1594,7 +1594,7 @@ private fun NavSearchScreen(
         OutlinedTextField(
             value = query,
             onValueChange = { query = it },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().testTag("quest_search_field"),
             singleLine = true,
             label = { Text("Quest, NPC, location, ID...") },
             colors = OutlinedTextFieldDefaults.colors(

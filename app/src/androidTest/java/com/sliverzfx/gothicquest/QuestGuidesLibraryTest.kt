@@ -54,6 +54,21 @@ class QuestGuidesLibraryTest {
     }
 
     @Test
+    fun gothicRemakeSearchKeepsQuestStatusAndFavoriteOnItsOwnIdentity() {
+        waitForHome()
+        composeRule.onNodeWithText("PICK A GAME").performClick()
+        composeRule.onNodeWithTag("game_gothic_remake").performClick()
+        composeRule.onNodeWithText("SEARCH").performScrollTo().performClick()
+        composeRule.onNodeWithTag("quest_search_field").performTextInput("A Few Drops Too Much")
+        composeRule.onNodeWithText("A Few Drops Too Much", substring = true).performScrollTo().performClick()
+        composeRule.onNodeWithTag("quest_favorite_toggle").performClick()
+        composeRule.onNodeWithTag("quest_completed_toggle").performClick()
+        composeRule.onNodeWithTag("quest_favorite_toggle").assertTextContains("★")
+        composeRule.onNodeWithTag("quest_completed_toggle").assertTextContains("✓")
+        composeRule.onNodeWithText("G1R-C1-001").assertExists()
+    }
+
+    @Test
     fun gothic3UsesPartsInsteadOfChapters() {
         waitForHome()
         composeRule.onNodeWithText("PICK A GAME").performClick()
